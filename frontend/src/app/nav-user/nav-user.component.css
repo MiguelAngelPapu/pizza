@@ -1,0 +1,50 @@
+nav {
+    font-family: sans-serif;
+    padding: 0 5px;
+    position: sticky;
+    z-index: 10;
+    display: flex;
+    justify-content: center;
+    top: 54px;
+    height: 46px;
+    background-color: var(--color-1);
+    border-bottom-width: 1px;
+    border-bottom-style: solid;
+    border-bottom-color: #dbdbdbaf;
+   
+}
+.nav__container{
+    display: flex;
+    align-items: center;
+    overflow-x: auto;
+    gap: 20px;
+}
+
+.nav__container > li {
+    border-radius: 15px;
+    padding: 6px 16px;
+    height: 26px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: transparent;
+    white-space: nowrap;
+    cursor: pointer;
+   
+}
+.nav__container > li:hover,
+.nav__container > li:hover a,
+.nav__container > li:active,
+.nav__container > li:active a,
+
+.nav__container > li.active,
+.nav__container > li.active a{
+    background: var(--color-5);
+    color: var(--color-1);
+}
+.nav__container > li a{
+    font-size: 14px;
+    font-family: "Signika-SemiBold";
+    text-decoration: none;
+    color: var(--color-2);
+}

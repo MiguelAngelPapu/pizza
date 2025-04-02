@@ -1,0 +1,22 @@
+header{
+    padding: 0 20px;
+    position: sticky;
+    z-index: 10;
+    top: -1px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-1);
+    background-color: var(--color-3);
+    background-image: url('/assets/img/banner.svg'), linear-gradient(180deg, var(--color-3) 10%, var(--color-6) 90%);
+    background-size: cover;
+    background-position: top center;
+    height: 55px;
+    gap: 17px;
+}
+.header__title{
+    flex: 2;
+    font-family: "Signika-SemiBold";
+    padding-bottom: 2px;
+    font-size: 19px;
+} 

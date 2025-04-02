@@ -3,15 +3,18 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
+use App\Models\Categories;
+use App\Models\Products;
+use App\Models\Menus;
 
-class ProductsController extends Controller
+class CatalogsController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-       
+        
     }
 
     /**
@@ -19,7 +22,7 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //
     }
 
     /**
@@ -44,5 +47,17 @@ class ProductsController extends Controller
     public function destroy(string $id)
     {
         //
+    }
+    public function getProductsByCategory(string $categoryId)
+    {   
+        if($categoryId == 'all'){
+            $products = Products::all();
+            return response()->json($products);
+        }
+        $products = Products::whereHas('categories', function($query) use ($categoryId) {
+            $query->where('categories.id', $categoryId);
+        })->get();
+        
+        return response()->json($products);
     }
 }

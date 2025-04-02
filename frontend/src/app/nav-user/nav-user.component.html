@@ -1,0 +1,9 @@
+<nav>
+    <ul class="nav__container">
+        @for (categorie of catalogService.categiriesService.categories; track categorie.name) {
+            <li [class.active]="categorie.active">
+                <a (click)="sendCategory($event)" [id]="categorie.id" href="#">{{ categorie.name }}</a>
+            </li>
+        }
+    </ul>
+</nav>

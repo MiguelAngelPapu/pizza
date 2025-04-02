@@ -12,7 +12,9 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware) {
         return [
-            \App\Http\Middleware\VerifyCsrfToken::class
+            // Colocar el middleware CORS primero en la lista
+            \Illuminate\Http\Middleware\HandleCors::class, 
+            \App\Http\Middleware\VerifyCsrfToken::class,
         ];
     })
     ->withExceptions(function (Exceptions $exceptions) {

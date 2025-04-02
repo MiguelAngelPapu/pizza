@@ -1,0 +1,85 @@
+:host{
+    display: flex;
+    justify-content: center;
+    gap: 8px;
+    row-gap: 28px;
+    flex-wrap: wrap;
+}
+section{
+    width: 48%;
+    height: 204px;
+    background-color: var(--color-1);
+    border-radius: 5px;
+    padding-top: 5px;
+}
+section.active{
+    background-color: var(--color-4);
+    padding-top: 0px;
+}
+section img{
+    width: 100%;
+    height: 104px;
+    object-fit: contain;
+}
+section.active img{
+    height: 129px;
+    object-fit: cover;
+}
+.product__details{
+    font-family: "Signika-SemiBold";
+    font-size: 14px;
+    position: relative;
+    margin-top: 4px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-2);
+    padding: 0 8px;
+}
+section.active .product__details{
+    color: var(--color-1);
+}
+.product__details strong{
+    font-size: 14px;
+    margin-top: 4px;
+    color: var(--color-3);
+}
+.product__details p{
+    font-family: "Signika-Light";
+    font-weight: lighter;
+    text-align: center;
+    font-size: 10px;
+    margin-top: 4px;
+    color: #969AB0;
+    height: 25.6px;
+    overflow: hidden;
+
+}
+section.active .product__details p{
+    color: var(--color-1);
+}
+.product__details button{
+    font-family: "Signika-SemiBold";
+    background-color: var(--color-5);
+    width: 91px;
+    height: 28px;
+    border: none;
+    color:var(--color-1);
+    font-size: 12px;
+    padding: 6px 20px;
+    cursor: pointer;
+    border-radius: 15px;
+    position: absolute;
+    bottom: -32px;
+    box-shadow: 0px 1px 4px rgba(246, 118, 44, 0.2);
+    /* Al hacer varios click en la version movil no se hace zoom en el boton */
+    touch-action: manipulation;
+    -ms-touch-action: manipulation; /* Soporte para IE/Edge antiguos */
+}
+section.active .product__details button{
+    width: 111px;
+    background-color: var(--color-1);
+    color:var(--color-2);
+    bottom: -35px;
+}

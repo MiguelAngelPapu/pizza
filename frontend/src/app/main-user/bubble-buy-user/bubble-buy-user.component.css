@@ -1,0 +1,45 @@
+.section__bubble{
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 120px;
+    height: 48px;
+    background-color: rgba(14, 15, 19, 0.817);
+    border-radius: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: var(--color-1);
+}
+.section__bubble strong{
+    font-family: "Signika-SemiBold";
+    font-size: 17px;
+}
+.section__bubble div{
+    position: relative;
+}
+.section__bubble div span{
+    font-size: 13px;
+    z-index: 10;
+    outline: 3px solid var(--color-1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 100%;
+    width: 18px;
+    height: 18px;
+    position: absolute;
+    top: -5px;
+    right: -18px;
+    background: linear-gradient(-36deg, var(--color-3), var(--color-6));
+    font-size: 13px;
+}
+.section__bubble div img{
+    position: relative;
+    right: -10px;
+    width: 42px;
+    height: 42px;
+    object-fit: contain;
+    background-color: var(--color-1);
+    border-radius: 100%;
+}

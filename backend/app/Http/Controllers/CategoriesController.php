@@ -3,15 +3,17 @@
 namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
+use App\Models\Categories;
 
-class ProductsController extends Controller
+class CategoriesController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-       
+        $category = Categories::All();
+        return response()->json($category);
     }
 
     /**
@@ -19,7 +21,7 @@ class ProductsController extends Controller
      */
     public function store(Request $request)
     {
-        
+        //
     }
 
     /**
@@ -27,7 +29,9 @@ class ProductsController extends Controller
      */
     public function show(string $id)
     {
-        //
+        
+        $category = Categories::find($id);
+        return response()->json($category);
     }
 
     /**

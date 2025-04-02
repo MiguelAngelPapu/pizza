@@ -1,0 +1,9 @@
+<header>
+    <div><img src="/assets/img/menu.svg" alt="" srcset=""></div>
+    @if(showSearch) {
+        <app-search-products #inputComponent/>
+    }@else {
+        <div class="header__title">{{ wellcomeMessage() }}</div>
+    }
+    <div (click)="showFormSearchProducts()" ><img src="/assets/img/search.svg" alt="" srcset=""></div>
+</header>

@@ -1,0 +1,26 @@
+:root{
+    --color-1: white;
+    --color-2: black;
+    --color-3: #FD5C2E;
+    --color-4: #F6752C;
+    --color-5: #FFAA2C;
+    --color-6: #FE7122;
+}
+@font-face {
+    font-family: "Signika-Regular";
+    src: url(/assets/font/Signika/static/Signika-Regular.ttf);
+}
+@font-face {
+    font-family: "Signika-SemiBold";
+    src: url(/assets/font/Signika/static/Signika-SemiBold.ttf);
+}
+@font-face {
+    font-family: "Signika-Light";
+    src: url(/assets/font/Signika/static/Signika-Light.ttf);
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Signika-Regular";
+}

@@ -1,0 +1,13 @@
+@for (product of catalogService.productsFilter; track product.id) {
+    <section [class.active]="product.price == null">
+        <img [src]="product.imageUrl" [alt]="product.name">
+        <div class="product__details">
+            @if (product.price != null) {
+                <strong>£ {{product.price}}</strong>
+            }
+            <h5>{{ product.name }}</h5>
+            <p>{{ product.description }}</p>
+            <button (click)="addProductShoppingCart(product)">{{ product.price == null ? 'Create Now' : 'Add' }}</button>
+        </div>
+    </section>
+}

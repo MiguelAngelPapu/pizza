@@ -1,0 +1,17 @@
+:host {
+    flex: 1;
+    padding-bottom: 3px;
+}
+.form__search input{
+    font-family: "Signika-Regular";
+    outline: none;
+    border-radius: 10px;
+    font-size: 19px;
+    border: 1px solid #ccc;
+    width: 100%;
+    height: 33px;
+    padding: 0 10px;
+}
+.form__search input::placeholder{
+    color: #969AB0;
+}

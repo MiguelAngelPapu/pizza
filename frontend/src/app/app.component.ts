@@ -1,27 +1,16 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
-import { ApiService } from './service/api.service';
+import { HeaderUserComponent } from "./header-user/header-user.component";
+import { NavUserComponent } from "./nav-user/nav-user.component";
+import { MainUserComponent } from "./main-user/main-user.component";
 
 @Component({
   selector: 'app-root',
-  standalone: true,
-  imports: [RouterOutlet],
+  standalone: true,  // Añade esta línea
+  imports: [RouterOutlet, HeaderUserComponent, NavUserComponent, MainUserComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  public datos: Array<any> = [];
-  constructor(private apiService: ApiService) { }
-  
-  ngOnInit() {
-    this.apiService.findApi().subscribe(
-      (response) => {
-        this.datos.push(response);
-        console.log('API response:', this.datos);
-      }, 
-      (error) => {
-        console.error('Error fetching API:', error);
-      }
-    );
-  }
+  title = 'Hello World';
 }
