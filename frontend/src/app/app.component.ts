@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { ApiService } from './service/api.service';
 
 @Component({
   selector: 'app-root',
@@ -9,5 +10,18 @@ import { RouterOutlet } from '@angular/router';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'frontend';
+  public datos: Array<any> = [];
+  constructor(private apiService: ApiService) { }
+  
+  ngOnInit() {
+    this.apiService.findApi().subscribe(
+      (response) => {
+        this.datos.push(response);
+        console.log('API response:', this.datos);
+      }, 
+      (error) => {
+        console.error('Error fetching API:', error);
+      }
+    );
+  }
 }

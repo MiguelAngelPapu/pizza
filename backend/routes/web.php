@@ -1,10 +1,18 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ProductsController;
 
-Route::get('/app/{any}', function () {
-    return file_get_contents(public_path('angular/index.html'));
-})->where('any', '.*');
+Route::prefix('/product')->name('POST.')->group(function () {
+    // Route::get('/all', [PostController::class, "findAll"])->name('FINDALL');
+    Route::resource('/', ProductsController::class)->parameters(['' => 'id'])->names([
+        'show' => 'SHOW',
+        'index' => 'INDEX',
+        'store' => 'STORE',
+        'update' => 'UPDATE',
+        'destroy' => 'DELETE'
+    ]);
+});
 
 
 Route::get('/', function () {
