@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { CatalogService } from '@services/catalog.service';
 
 // Definir una interfaz los productos que se pasan al metodo showProduct
@@ -16,8 +17,11 @@ interface Product {
   templateUrl: './product-user.component.html',
   styleUrl: './product-user.component.css'
 })
-export class ProductUserComponent {
-    constructor(public catalogService: CatalogService) { 
+export class ProductUserComponent implements OnInit { 
+    constructor(
+      public catalogService: CatalogService,
+      private route: ActivatedRoute // Aquí inyectas ActivatedRoute
+    ) { 
       
     }
     addProductShoppingCart(product: Product): void {
@@ -29,10 +33,12 @@ export class ProductUserComponent {
       this.catalogService.shoppingCartService.findProductShoppingCart();
     }
     ngOnInit(): void {
-      this.catalogService.findProductsByCategory().subscribe((res: any) => {
-        this.catalogService.productsService.products = res;
-        this.catalogService.productsFilter = [this.catalogService.productsService.createYourOwnPizza, ...res];
+      this.route.paramMap.subscribe(params => {
+        let id = params.get('categoryId');
+        this.catalogService.findProductsByCategory((id && +id !== 0) ? id : "all").subscribe((res: any) => {
+          this.catalogService.productsService.products = res;
+          this.catalogService.productsFilter = [this.catalogService.productsService.createYourOwnPizza, ...res];
+        }); 
       });
     }
-    
 }
