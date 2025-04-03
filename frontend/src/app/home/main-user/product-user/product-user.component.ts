@@ -1,5 +1,6 @@
+import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CatalogService } from '@services/catalog.service';
 
 // Definir una interfaz los productos que se pasan al metodo showProduct
@@ -13,7 +14,7 @@ interface Product {
 @Component({
   selector: 'app-product-user',
   standalone: true,  // Añade esta línea
-  imports: [],
+  imports: [RouterLink, CommonModule], // Añadir RouterLink aquí
   templateUrl: './product-user.component.html',
   styleUrl: './product-user.component.css'
 })
@@ -34,8 +35,14 @@ export class ProductUserComponent implements OnInit {
     }
     ngOnInit(): void {
       this.route.paramMap.subscribe(params => {
+
         let id = params.get('categoryId');
-        this.catalogService.findProductsByCategory((id && +id !== 0) ? id : "all").subscribe((res: any) => {
+        id = (id && +id !== 0) ? id : "all";
+        this.catalogService.categiriesService.searchCategoryById(id).subscribe((res: any) => {
+            this.catalogService.categiriesService.categorie = (!res.id) ? "all" : res.name;
+        });
+
+        this.catalogService.findProductsByCategory(id).subscribe((res: any) => {
           this.catalogService.productsService.products = res;
           this.catalogService.productsFilter = [this.catalogService.productsService.createYourOwnPizza, ...res];
         }); 

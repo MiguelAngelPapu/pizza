@@ -18,6 +18,9 @@ export class CategiriesService {
     findCategories(): Observable<any> {
         return this.http.get(`${this.url}`);
     }
+    searchCategoryById(id: number | string): Observable<any> {
+        return this.http.get(`${this.url}/${id}`);
+    }
     set categories(categories: Array<any>) {
         this._categories.push(...categories)
     }

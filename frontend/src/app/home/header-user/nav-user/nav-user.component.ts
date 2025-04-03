@@ -12,8 +12,7 @@ import { CatalogService } from '@services/catalog.service';
   styleUrl: './nav-user.component.css'
 })
 export class NavUserComponent {
-  constructor(public catalogService: CatalogService,) { 
-
+  constructor(public catalogService: CatalogService) { 
   }
   sendCategory(e: Event): void {
     const a = e.target as HTMLInputElement
@@ -22,8 +21,6 @@ export class NavUserComponent {
   ngOnInit(): void {    
     this.catalogService.categiriesService.findCategories().subscribe((res: any) => {
       this.catalogService.categiriesService.categories = res;
-      console.log(this.catalogService.categiriesService.categories);
-      
     });
   }
 }

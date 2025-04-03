@@ -7,7 +7,12 @@
             }
             <h5>{{ product.name }}</h5>
             <p>{{ product.description }}</p>
-            <button (click)="addProductShoppingCart(product)">{{ product.price == null ? 'Create Now' : 'Add' }}</button>
+            @if(product.price == null) {
+                <button [routerLink]="['/create-pizza']">Create Now</button>
+            }@else {
+                <button (click)="addProductShoppingCart(product)">Add</button>
+            }
+            
         </div>
     </section>
 }
