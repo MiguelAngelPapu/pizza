@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, RouterLink } from '@angular/router';
 import { CatalogService } from '@services/catalog.service';
+import { CustomProductService } from '@services/custom-product.service';
 
 // Definir una interfaz los productos que se pasan al metodo showProduct
 interface Product {
@@ -20,6 +21,7 @@ interface Product {
 })
 export class ProductUserComponent implements OnInit { 
     constructor(
+      public customProductService: CustomProductService,
       public catalogService: CatalogService,
       private route: ActivatedRoute // Aquí inyectas ActivatedRoute
     ) { 

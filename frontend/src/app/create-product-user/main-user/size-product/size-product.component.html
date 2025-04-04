@@ -1,0 +1,18 @@
+<section class="section__options">
+    <h5>Size</h5>
+    <ul class="ul__container">
+        @for (size of sizes; track size.id) {
+            <li [class.active]="size.active">
+                <a [routerLink]="['/create-pizza', {
+                        size: size.id,
+                        crust: customProductService.custom.crust,
+                        topping: customProductService.custom.topping
+                    }]">
+                    <!-- queryParamsHandling="merge" -->
+                    <h5>{{ size.name }}</h5>
+                    <span>{{ size.price }}</span>
+                </a>
+            </li>
+        }           
+    </ul>
+</section>

@@ -1,7 +1,19 @@
 <header>
     <img src="/assets/img/banner2.png">
-   <div class="div__breadcrumbs">
-        <a href="/"><img src="/assets/img/back.svg"></a>
-        <strong>Step 1<span> / 2</span></strong>
-   </div>
+     <div class="div__breadcrumbs">
+          @switch (customProductService.customViews) {
+               @case ("create-pizza") {
+                    <a [routerLink]="['/home']"><img src="/assets/img/back.svg"></a>
+               }
+               @case ("left-half") {
+                    <a [routerLink]="['/create-pizza', 
+                    {
+                        size: customProductService.custom.size,
+                        crust: customProductService.custom.crust,
+                        topping: customProductService.custom.topping
+                    }]"><img src="/assets/img/back.svg"></a>
+               }
+          }
+          <strong>Step {{ customProductService.page }}<span> / 2</span></strong>
+     </div>
 </header>

@@ -2,6 +2,10 @@ import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ProductUserComponent } from './home/main-user/product-user/product-user.component';
 import { CreateProductUserComponent } from './create-product-user/create-product-user.component';
+import { SizeProductComponent } from './create-product-user/main-user/size-product/size-product.component';
+import { CrustProductComponent } from './create-product-user/main-user/crust-product/crust-product.component';
+import { ToppingProductComponent } from './create-product-user/main-user/topping-product/topping-product.component';
+import { ProductPartsComponent } from './create-product-user/main-user/product-parts/product-parts.component';
 
 export const routes: Routes = [
     {
@@ -20,6 +24,23 @@ export const routes: Routes = [
     {
         path: 'create-pizza', 
         component: CreateProductUserComponent,
+        children: [
+            { path: '', component: SizeProductComponent, outlet: 'size' },
+            { path: '', component: CrustProductComponent, outlet: 'crust' },
+            { path: '', component: ToppingProductComponent, outlet: 'topping' },
+            // Ruta para la mitad izquierda (como ruta hija)
+            { 
+                path: 'left-half', 
+                component: ProductPartsComponent,
+                // children: [
+                //     // Ruta para la mitad derecha (anidada dentro de left-half)
+                //     { 
+                //         path: 'right-half', 
+                //         // component: CompleteCustomizerComponent 
+                //     }
+                // ]
+            }
+        ]
     },
     {
         path: '**',

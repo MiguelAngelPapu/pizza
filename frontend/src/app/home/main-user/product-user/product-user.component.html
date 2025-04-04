@@ -8,7 +8,11 @@
             <h5>{{ product.name }}</h5>
             <p>{{ product.description }}</p>
             @if(product.price == null) {
-                <button [routerLink]="['/create-pizza']">Create Now</button>
+                <button [routerLink]="['/create-pizza', {
+                    size: customProductService.custom.size,
+                    crust: customProductService.custom.crust,
+                    topping: customProductService.custom.topping
+                }]">Create Now</button>
             }@else {
                 <button (click)="addProductShoppingCart(product)">Add</button>
             }

@@ -55,23 +55,33 @@ main{
     /* Al hacer varios click en la version movil no se hace zoom en el boton */
     touch-action: manipulation;
     -ms-touch-action: manipulation; /* Soporte para IE/Edge antiguos */
+
+    /* Elimina el resaltado gris al tocar en dispositivos móviles */
+    -webkit-tap-highlight-color: transparent; /* Safari/iOS */
+    outline: none;                            /* Evita resaltado de otros navegadores */
+    user-select: none;                        /* Previene selección de texto */
 }
 .ul__container-image{
     padding-bottom: 0px;
 }
 .ul__container-image > li {
     background: transparent;
-    height: 100%;
+    height: 130px;
     display: flex;
     justify-content: center;
     align-items: center;
     min-width: 48.5%;
 }
 .ul__container-image > li a{
+    background: blue;
     display: flex;
     justify-content: center;
     align-items: center;
     border-radius: 100%;
+
+    -webkit-tap-highlight-color: transparent;
+    tap-highlight-color: transparent;
+    outline: none;
 }
 .ul__container-image > li.active a{
     outline: 2px solid var(--color-4);
@@ -113,6 +123,7 @@ main{
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
 }
 .ul__container li a h5{
     color: var(--color-7);
