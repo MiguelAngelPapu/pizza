@@ -1,0 +1,46 @@
+ .section__options > h5{
+     color: var(--color-7);
+     font-family: "Signika-SemiBold";
+     font-size: 15px;
+ }
+ .ul__container-options{
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    
+}
+.ul__container-options > li{
+    margin-top: 3%;
+    list-style: none;
+    cursor: pointer;
+    /* Al hacer varios click en la version movil no se hace zoom en el boton */
+    touch-action: manipulation;
+    -ms-touch-action: manipulation; /* Soporte para IE/Edge antiguos */
+
+    /* Elimina el resaltado gris al tocar en dispositivos móviles */
+    -webkit-tap-highlight-color: transparent; /* Safari/iOS */
+    outline: none;                            /* Evita resaltado de otros navegadores */
+    user-select: none;                        /* Previene selección de texto */
+}
+.ul__container-options li a{
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.ul__container-options li a h5{
+    color: var(--color-7);
+    /* color: var(--color-4); */
+    font-family: "Signika-SemiBold";
+    font-size: 15px;
+}
+.ul__container-options li a img{
+    opacity: .5;
+}
+.ul__container-options li.active a h5{
+    color: var(--color-4);
+}
+.ul__container-options li.active a img{
+    opacity: 1;
+}

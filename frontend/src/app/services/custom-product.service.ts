@@ -12,8 +12,8 @@ export class CustomProductService {
     crust: 1 as number | null,
     topping: 1 as number | null,
     'left-half': {
-      sauce: null as number | null,
-      choose: null as number | null,
+      sauce: 2 as number | null,
+      choose: [1, 2]
     },
     'right-half': {
       sauce: null as number | null,

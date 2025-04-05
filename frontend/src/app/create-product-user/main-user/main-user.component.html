@@ -15,13 +15,21 @@
                 'left-half',
                 {
                     sauce: customProductService.custom['left-half'].sauce,
-                    choose: customProductService.custom['left-half'].sauce,
+                    choose: customProductService.custom['left-half'].choose,
                 }
                 ]">Next</a>
             <!-- queryParamsHandling="preserve" -->
         </footer>
     }
     @case ("left-half") {
-        <h1>Soy izquiera</h1>
+        <main>
+            <router-outlet name="choose-topping-parts" />
+            <router-outlet name="sauce" />
+            <router-outlet name="choose" />
+        </main>
+        <footer>
+            <a href="#">Add to Cart</a>
+            <!-- queryParamsHandling="preserve" -->
+        </footer>
     }
 }
