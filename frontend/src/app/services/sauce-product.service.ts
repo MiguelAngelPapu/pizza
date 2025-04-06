@@ -24,8 +24,15 @@ export class SauceProductService {
       }));
     });
   }
-
   public findSauces(): Observable<any> {
     return this.http.get(`${this.url}`);
+  }
+  public sauceForPrice(sauce: Sauce): string{
+    return new Intl.NumberFormat('es-CO', {
+      style: 'currency',
+      currency: 'COP',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    }).format(sauce.price);
   }
 }

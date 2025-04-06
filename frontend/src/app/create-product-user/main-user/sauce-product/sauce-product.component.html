@@ -9,7 +9,13 @@
                         sauce: sauce.id,
                         choose: customProductService.custom['left-half'].choose
                     }]">
-                        <span>{{ sauce.name }}</span>
+                        @if (sauce.price) {
+                            <h5>{{ sauce.name }}</h5>
+                            <span>{{ customProductService.sauceProductService.sauceForPrice(sauce) }}</span>
+                        }
+                        @else{
+                            <span>{{ sauce.name }}</span>
+                        }
                     </a>
                 }@else if (customProductService.customViews == "right-half") {
                     <a [routerLink]="['/right-half',
@@ -17,7 +23,13 @@
                         sauce: sauce.id,
                         choose: customProductService.custom['right-half'].choose
                     }]">
+                       @if (sauce.price) {
+                        <h5>{{ sauce.name }}</h5>
+                        <span>{{ customProductService.sauceProductService.sauceForPrice(sauce) }}</span>
+                    }
+                    @else{
                         <span>{{ sauce.name }}</span>
+                    }
                     </a>
                 }
             </li>

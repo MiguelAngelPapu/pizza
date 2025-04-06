@@ -19,6 +19,7 @@ class SauceSeeder extends Seeder
         
         // Datos para la tabla sauces
         $sauces = [
+            // Salsas básicas (sin costo adicional)
             [
                 'id' => 1,
                 'name' => 'BBQ',
@@ -37,6 +38,71 @@ class SauceSeeder extends Seeder
                 'id' => 3,
                 'name' => 'Hierba con ajo',
                 'price' => 0,
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'id' => 4,
+                'name' => 'Napolitana',
+                'price' => 0,
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            
+            // Salsas premium (con costo adicional)
+            [
+                'id' => 5,
+                'name' => 'Pesto',
+                'price' => 5500,
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'id' => 6,
+                'name' => 'Alfredo (blanca)',
+                'price' => 4500,
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'id' => 7,
+                'name' => 'Ají picante colombiano',
+                'price' => 2800,
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'id' => 8,
+                'name' => 'Hogao colombiano',
+                'price' => 3200,
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'id' => 9,
+                'name' => 'Rosada',
+                'price' => 2500,
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'id' => 10,
+                'name' => ' Queso azul',
+                'price' => 6900,
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'id' => 11,
+                'name' => 'Champiñones',
+                'price' => 4800,
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'id' => 12,
+                'name' => 'Salsa de la casa',
+                'price' => 3900,
                 'created_at' => $now,
                 'updated_at' => $now
             ]
