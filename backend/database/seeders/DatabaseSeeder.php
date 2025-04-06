@@ -20,7 +20,8 @@ class DatabaseSeeder extends Seeder
             MenusSeeder::class,
             SizeSeeder::class,
             CrustSeeder::class,
-            ToppingSeeder::class
+            ToppingSeeder::class,
+            SauceSeeder::class
         ]);
     }
 }
