@@ -8,7 +8,7 @@
                         crust: crust.id,
                         topping: customProductService.custom.topping
                     }]">
-                    @if (crust.extraPrice != 0) {
+                    @if (crust.extra_price != 0) {
                         <h5>{{ crust.name }}</h5>
                         <span>{{ customProductService.crustProductService.crustForPrice(crust) }}</span>
                     }@else {

@@ -18,7 +18,8 @@ class DatabaseSeeder extends Seeder
             ProductSeeder::class,
             CategoriesSeeder::class,
             MenusSeeder::class,
-            SizeSeeder::class
+            SizeSeeder::class,
+            CrustSeeder::class
         ]);
     }
 }
