@@ -18,22 +18,26 @@ class CategoriesSeeder extends Seeder
     {
         $categories = [
             [
-                'name' => "Starters",
+                'id' => 1,
+                'name' => "Pizzas Clásicas",
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'name' => "Asian",
+                'id' => 2,
+                'name' => "Pizzas Gourmet",
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'name' => "Plancha & roasts & grills",
+                'id' => 3,
+                'name' => "Pizzas Vegetarianas",
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
-                'name' => "Classic",
+                'id' => 4,
+                'name' => "Especialidades",
                 'created_at' => now(),
                 'updated_at' => now(),
             ]

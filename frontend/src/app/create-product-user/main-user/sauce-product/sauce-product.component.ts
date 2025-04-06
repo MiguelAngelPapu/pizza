@@ -10,11 +10,6 @@ import { CustomProductService } from '@services/custom-product.service';
   styleUrls: ['./sauce-product.component.css', '../main-user.component.css']
 })
 export class SauceProductComponent {
-  public sauces = [
-    { id: 1, name: 'BBQ'},
-    { id: 2, name: 'Tomato', active: true },
-    { id: 3, name: 'Garlic Hurb'}
-  ];
   constructor(
     public customProductService: CustomProductService,
     private route: ActivatedRoute
@@ -23,7 +18,11 @@ export class SauceProductComponent {
     this.route.parent?.params.subscribe(params => {
       if (params['sauce']) {
         const sauceId = +params['sauce'];
-        this.customProductService.custom['left-half'].sauce = sauceId;
+        if(this.customProductService.customViews == "left-half"){
+          this.customProductService.custom['left-half'].sauce = sauceId;
+        }else{
+          this.customProductService.custom['right-half'].sauce = sauceId;
+        }
         this.updateActiveSauces(sauceId);
       }
     });
@@ -31,7 +30,7 @@ export class SauceProductComponent {
 
   // Método para actualizar la corteza activa
   updateActiveSauces(sauceId: number) {
-    this.sauces.forEach(sauce => {
+    this.customProductService.sauceProductService.sauces.forEach(sauce => {
       sauce.active = sauce.id === sauceId;
     });
   }

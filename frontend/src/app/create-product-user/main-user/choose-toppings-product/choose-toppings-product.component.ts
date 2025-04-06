@@ -19,16 +19,16 @@ interface Topping {
 export class ChooseToppingsProductComponent implements OnInit {
   /** Listado de toppings disponibles */
   public chooses: Topping[] = [
-    { id: 1, name: 'Pineapple', active: true },
-    { id: 2, name: 'Jalapenos' },
-    { id: 3, name: 'Sweet Corn' },
+    { id: 1, name: 'Piña', active: true },
+    { id: 2, name: 'Jalapeños' },
+    { id: 3, name: 'Maíz dulce' },
     { id: 4, name: 'Pepperoni' },
-    { id: 5, name: 'Red Onions'},
-    { id: 6, name: 'Anchovies', active: true },
-    { id: 7, name: 'Ground Beef' },
-    { id: 8, name: 'Chicken Tikka', active: false },
-    { id: 9, name: 'Mushroom'},
-    { id: 10, name: 'Tuna' }
+    { id: 5, name: 'Cebollas rojas'},
+    { id: 6, name: 'Anchoas', active: true },
+    { id: 7, name: 'Carne molida' },
+    { id: 8, name: 'Pollo Tikka', active: false },
+    { id: 9, name: 'Champiñones'},
+    { id: 10, name: 'Atún' }
   ];
 
   /** IDs de los toppings seleccionados */
@@ -55,13 +55,16 @@ export class ChooseToppingsProductComponent implements OnInit {
     this.route.parent?.params.subscribe(params => {
       if (params['choose']) {
         this.selectedIds = params['choose'].split(',').map(Number);
-        this.customProductService.custom['left-half'].choose = [...this.selectedIds];
+        if(this.customProductService.customViews == "left-half"){
+          this.customProductService.custom['left-half'].choose = [...this.selectedIds];
+        }else if(this.customProductService.customViews == "right-half"){
+          this.customProductService.custom["right-half"].choose = [...this.selectedIds];
+        }
         this.updateActiveChooses();
         this.cdr.markForCheck();
       }
     });
   }
-  
   /**
    * Actualiza el estado visual de los toppings según las selecciones
    */
@@ -89,7 +92,11 @@ export class ChooseToppingsProductComponent implements OnInit {
     
     // Actualizar UI y servicio
     this.updateActiveChooses();
-    this.customProductService.custom['left-half'].choose = [...this.selectedIds];
+    if(this.customProductService.customViews == "left-half"){
+      this.customProductService.custom['left-half'].choose = [...this.selectedIds];
+    }else if(this.customProductService.customViews == "right-half"){
+      this.customProductService.custom['right-half'].choose = [...this.selectedIds];
+    }
     this.cdr.markForCheck();
     
     // Navegar con las selecciones actualizadas
@@ -102,22 +109,29 @@ export class ChooseToppingsProductComponent implements OnInit {
   confirmSelection(): void {
     const chooseStr = this.selectedIds.join(',');
     
-    this.router.navigate([
-      '/create-pizza',
-      {
-        size: this.customProductService.custom.size,
-        crust: this.customProductService.custom.crust,
-        topping: this.customProductService.custom.topping
-      },
-      'left-half',
-      {
-        sauce: this.customProductService.custom['left-half'].sauce,
-        choose: chooseStr
-      }
-    ]).then(success => {
-      if (!success) {
-        console.error('Error en la navegación');
-      }
-    });
+    if(this.customProductService.customViews == "left-half"){
+      this.router.navigate(['/left-half',
+        {
+          sauce: this.customProductService.custom['left-half'].sauce,
+          choose: chooseStr
+        }
+      ]).then(success => {
+        if (!success) {
+          console.error('Error en la navegación');
+        }
+      });
+    }else if(this.customProductService.customViews == "right-half"){
+      this.router.navigate(['/right-half',
+        {
+          sauce: this.customProductService.custom['right-half'].sauce,
+          choose: chooseStr
+        }
+      ]).then(success => {
+        if (!success) {
+          console.error('Error en la navegación');
+        }
+      });
+    }
+    
   }
 }

@@ -1,16 +1,26 @@
 <section class="section__options">
-    <h5>Choose Topping parts</h5>
+    <h5>Elija la mitad a perzonalizar</h5>
    <ul class="ul__container-options">
-        <li class="active">
-            <a href="#">
-                <h5>Left Half</h5>
+        <li [class.active]="customProductService.selectParts == true">
+            <a [routerLink]="['/left-half',
+            {
+                sauce: customProductService.custom['left-half'].sauce,
+                choose: customProductService.custom['left-half'].choose,
+            }
+            ]">
+                <h5>Izquierda</h5>
                 <img src="/assets/img/pizza-left.png" alt="" srcset="">
             </a>
         </li>
-        <li>
-            <a href="#">
+        <li [class.active]="customProductService.selectParts == false">
+            <a [routerLink]="['/right-half',
+                {
+                    sauce: customProductService.custom['right-half'].sauce,
+                    choose: customProductService.custom['right-half'].choose,
+                }
+                ]">
                 <img src="/assets/img/pizza-right.png" alt="" srcset="">
-                <h5>Right Half</h5>
+                <h5>Derecha</h5>
             </a>
         </li>
    </ul>

@@ -1,7 +1,7 @@
 <section class="section__options">
-    <h5>Crust</h5>
+    <h5>Corteza</h5>
     <ul class="ul__container">
-        @for (crust of crusts; track crust.id) {
+        @for (crust of customProductService.crustProductService.crusts; track crust.id) {
             <li [class.active]="crust.active">
                 <a [routerLink]="['/create-pizza',{
                         size: customProductService.custom.size,
@@ -10,7 +10,7 @@
                     }]">
                     @if (crust.extraPrice != 0) {
                         <h5>{{ crust.name }}</h5>
-                        <span>£{{ crust.extraPrice }}</span>
+                        <span>{{ customProductService.crustProductService.crustForPrice(crust) }}</span>
                     }@else {
                         <span>{{ crust.name }}</span>
                     }

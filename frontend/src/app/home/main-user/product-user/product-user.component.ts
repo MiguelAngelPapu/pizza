@@ -40,10 +40,6 @@ export class ProductUserComponent implements OnInit {
 
         let id = params.get('categoryId');
         id = (id && +id !== 0) ? id : "all";
-        this.catalogService.categiriesService.searchCategoryById(id).subscribe((res: any) => {
-            this.catalogService.categiriesService.categorie = (!res.id) ? "all" : res.name;
-        });
-
         this.catalogService.findProductsByCategory(id).subscribe((res: any) => {
           this.catalogService.productsService.products = res;
           this.catalogService.productsFilter = [this.catalogService.productsService.createYourOwnPizza, ...res];

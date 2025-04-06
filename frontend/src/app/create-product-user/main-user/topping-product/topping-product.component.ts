@@ -10,10 +10,6 @@ import { CustomProductService } from '@services/custom-product.service';
   styleUrls: ['./topping-product.component.css', '../main-user.component.css']
 })
 export class ToppingProductComponent {
- public toppingStyles = [
-    { id: 1, name: 'Style 1', imageUrl: '/assets/img/topping-style.png', active: true },
-    { id: 2, name: 'Style 2', imageUrl: '/assets/img/topping-style2.png' }
-  ]
   constructor(
     public customProductService: CustomProductService,
     private route: ActivatedRoute
@@ -32,7 +28,7 @@ export class ToppingProductComponent {
   
   // Método para actualizar la corteza activa
   updateActivetopping(toppingId: number) {
-    this.toppingStyles.forEach(topping => {
+    this.customProductService.toppingProductService.toppingStyles.forEach(topping => {
       topping.active = topping.id === toppingId;
     });
   }

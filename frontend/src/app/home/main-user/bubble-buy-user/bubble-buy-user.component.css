@@ -2,8 +2,7 @@
     position: fixed;
     bottom: 20px;
     right: 20px;
-    width: 120px;
-    height: 48px;
+    height: 50px;
     background-color: rgba(14, 15, 19, 0.817);
     border-radius: 50px;
     display: flex;
@@ -14,6 +13,7 @@
 .section__bubble strong{
     font-family: "Signika-SemiBold";
     font-size: 17px;
+    padding: 0 10px;
 }
 .section__bubble div{
     position: relative;
@@ -26,17 +26,17 @@
     justify-content: center;
     align-items: center;
     border-radius: 100%;
-    width: 18px;
-    height: 18px;
+    width: 25px;
+    height: 25px;
     position: absolute;
-    top: -5px;
-    right: -18px;
+    top: -10px;
+    right: -7px;
     background: linear-gradient(-36deg, var(--color-3), var(--color-6));
     font-size: 13px;
 }
 .section__bubble div img{
     position: relative;
-    right: -10px;
+    right: 3px;
     width: 42px;
     height: 42px;
     object-fit: contain;

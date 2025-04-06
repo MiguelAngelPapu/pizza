@@ -2,9 +2,9 @@
     @case ("create-pizza") {
         <main>
             <section class="section__information">
-                <h1>Create Your Own Pizza</h1>
-                <p>Create your own pizza by choosing a crust, sauce and toppings! Select from three crust sizes & thincknesses, choice of sauce over 10 individual toppings</p>
-                <span>You can choose upto 4 FREE toppins and 4 Extra toppings for £0.55 each</span>
+                <h1>Crea tu propia pizza</h1>
+                <p>Crea tu propia pizza eligiendo la masa, la salsa y los ingredientes. Elige entre tres tamaños y grosores de masa, elige la salsa y elige entre mas de 10 ingredientes individuales.</p>
+                <span>Puedes elegir hasta 4 ingredientes GRATIS y 4 ingredientes adicionales por $2.000 cada uno</span>
             </section>
             <router-outlet name="size" />
             <router-outlet name="crust" />
@@ -12,12 +12,12 @@
         </main>
         <footer>
             <a [routerLink]="[
-                'left-half',
+                '/left-half',
                 {
                     sauce: customProductService.custom['left-half'].sauce,
                     choose: customProductService.custom['left-half'].choose,
                 }
-                ]">Next</a>
+                ]">Siguiente</a>
             <!-- queryParamsHandling="preserve" -->
         </footer>
     }
@@ -27,9 +27,19 @@
             <router-outlet name="sauce" />
             <router-outlet name="choose" />
         </main>
-        <footer>
+        <!-- <footer>
             <a href="#">Add to Cart</a>
-            <!-- queryParamsHandling="preserve" -->
-        </footer>
+        </footer> -->
+        <!-- queryParamsHandling="preserve" -->
+    }
+    @case ("right-half") {
+        <main>
+            <router-outlet name="choose-topping-parts" />
+            <router-outlet name="sauce" />
+            <router-outlet name="choose" />
+        </main>
+        <!-- <footer>
+            <a href="#">Add to Cart</a>
+        </footer> -->
     }
 }

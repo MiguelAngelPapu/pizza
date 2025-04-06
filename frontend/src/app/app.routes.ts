@@ -30,20 +30,24 @@ export const routes: Routes = [
             { path: '', component: SizeProductComponent, outlet: 'size' },
             { path: '', component: CrustProductComponent, outlet: 'crust' },
             { path: '', component: ToppingProductComponent, outlet: 'topping' },
-            // Ruta para la mitad izquierda (como ruta hija)
-            { 
-                path: 'left-half', 
-                children: [
-                    { path: '', component: ProductPartsComponent, outlet: 'choose-topping-parts' },
-                    { path: '', component: SauceProductComponent, outlet: 'sauce' },
-                    { path: '', component: ChooseToppingsProductComponent, outlet: 'choose' }
-                    // Ruta para la mitad derecha (anidada dentro de left-half)
-                    // {     
-                    //     path: 'right-half', 
-                    //     component: CompleteCustomizerComponent 
-                    // }
-                ]
-            }
+        ]
+    },
+    { 
+        path: 'left-half', 
+        component: CreateProductUserComponent,
+        children: [
+            { path: '', component: ProductPartsComponent, outlet: 'choose-topping-parts' },
+            { path: '', component: SauceProductComponent, outlet: 'sauce' },
+            { path: '', component: ChooseToppingsProductComponent, outlet: 'choose' }
+        ]
+    },
+    { 
+        path: 'right-half',
+        component: CreateProductUserComponent,
+        children: [
+            { path: '', component: ProductPartsComponent, outlet: 'choose-topping-parts' },
+            { path: '', component: SauceProductComponent, outlet: 'sauce' },
+            { path: '', component: ChooseToppingsProductComponent, outlet: 'choose' }
         ]
     },
     {

@@ -10,6 +10,8 @@ import { CustomProductService } from '@services/custom-product.service';
   styleUrl: './header-user.component.css'
 })
 export class HeaderUserComponent {
-  constructor(public customProductService: CustomProductService) {}
+  constructor(public customProductService: CustomProductService) {
+
+  }
 
 }

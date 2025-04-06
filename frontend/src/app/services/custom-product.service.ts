@@ -1,9 +1,14 @@
 import { Injectable } from '@angular/core';
+import { SizeProductService } from './size-product.service';
+import { CrustProductService } from './crust-product.service';
+import { ToppingProductService } from './topping-product.service';
+import { SauceProductService } from './sauce-product.service';
 
 @Injectable({
   providedIn: 'root'
 })
 export class CustomProductService {
+  public selectParts: true | false = true;
   public customViews: 'create-pizza' | 'left-half' | 'right-half' = 'create-pizza';
   public page: 1 | 2 = 1;
 
@@ -16,9 +21,14 @@ export class CustomProductService {
       choose: [1, 2]
     },
     'right-half': {
-      sauce: null as number | null,
-      choose: null as number | null,
+      sauce: 2 as number | null,
+      choose: [1, 2]
     }
   };
-  constructor() { }
+  constructor(
+    public sizeProductService: SizeProductService,
+    public crustProductService: CrustProductService,
+    public toppingProductService: ToppingProductService,
+    public sauceProductService: SauceProductService
+  ) { }
 }

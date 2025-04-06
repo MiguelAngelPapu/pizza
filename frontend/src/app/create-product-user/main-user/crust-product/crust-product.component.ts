@@ -10,10 +10,6 @@ import { CustomProductService } from '@services/custom-product.service';
   styleUrls: ['./crust-product.component.css', '../main-user.component.css']
 })
 export class CrustProductComponent {
-  public crusts = [
-    { id: 1, name: 'Classic Crust', extraPrice: 0, active: true },
-    { id: 2, name: 'Italian Crust', extraPrice: 1.00 }
-  ];
   constructor(
     public customProductService: CustomProductService,
     private route: ActivatedRoute
@@ -31,7 +27,7 @@ export class CrustProductComponent {
 
   // Método para actualizar la corteza activa
   updateActiveCrust(crustId: number) {
-    this.crusts.forEach(crust => {
+    this.customProductService.crustProductService.crusts.forEach(crust => {
       crust.active = crust.id === crustId;
     });
   }

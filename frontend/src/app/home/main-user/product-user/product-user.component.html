@@ -3,7 +3,7 @@
         <img [src]="product.imageUrl" [alt]="product.name">
         <div class="product__details">
             @if (product.price != null) {
-                <strong>£ {{product.price}}</strong>
+                <strong>{{catalogService.productsService.productForPrice(product)}}</strong>
             }
             <h5>{{ product.name }}</h5>
             <p>{{ product.description }}</p>
@@ -12,9 +12,9 @@
                     size: customProductService.custom.size,
                     crust: customProductService.custom.crust,
                     topping: customProductService.custom.topping
-                }]">Create Now</button>
+                }]">Crear ahora</button>
             }@else {
-                <button (click)="addProductShoppingCart(product)">Add</button>
+                <button (click)="addProductShoppingCart(product)">Agregar</button>
             }
             
         </div>

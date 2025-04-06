@@ -1,7 +1,7 @@
 <section class="section__options">
-    <h5>Topping Style</h5>
+    <h5>Estilo de cobertura</h5>
     <ul class="ul__container-image selected__chosen-topping">
-        @for (topping of toppingStyles; track topping.id) {
+        @for (topping of customProductService.toppingProductService.toppingStyles; track topping.id) {
             <li [class.active]="topping.active">
                 <a [routerLink]="['/create-pizza', {
                     size: customProductService.custom.size,

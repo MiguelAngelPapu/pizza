@@ -1,21 +1,25 @@
 <section class="section__options">
-    <h5>Sauce</h5>
+    <h5>Salsa</h5>
     <ul class="ul__container section__options__list ">
-        @for (sauce of sauces; track sauce.id) {
+        @for (sauce of customProductService.sauceProductService.sauces; track sauce.id) {
             <li [class.active]="sauce.active">
-                <a [routerLink]="['/create-pizza', 
-                {
-                    size: customProductService.custom.size,
-                    crust: customProductService.custom.crust,
-                    topping: customProductService.custom.topping
-                },
-                'left-half',
-                {
-                    sauce: sauce.id,
-                    choose: customProductService.custom['left-half'].choose
-                }]">
-                    <span>{{ sauce.name }}</span>
-                </a>
+                @if (customProductService.customViews == "left-half") {
+                    <a [routerLink]="['/left-half',
+                    {
+                        sauce: sauce.id,
+                        choose: customProductService.custom['left-half'].choose
+                    }]">
+                        <span>{{ sauce.name }}</span>
+                    </a>
+                }@else if (customProductService.customViews == "right-half") {
+                    <a [routerLink]="['/right-half',
+                    {
+                        sauce: sauce.id,
+                        choose: customProductService.custom['right-half'].choose
+                    }]">
+                        <span>{{ sauce.name }}</span>
+                    </a>
+                }
             </li>
         }
     </ul>

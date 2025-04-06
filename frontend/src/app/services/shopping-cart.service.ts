@@ -35,11 +35,19 @@ export class ShoppingCartService {
         return acc + (item.price || 0);
       }, 0);
       // Redondea a 2 decimales para evitar errores de punto flotante
-      total = Number(total.toFixed(2));
+      total = this.shoppingCartForPrice(Number(total));
       this.shoppingCartData = { count: this.localStorage.length, total };
 
     } else {
       this.shoppingCartData = { count: 0, total: 0 };
     }
+  }
+  public shoppingCartForPrice(total: number): string{
+    return new Intl.NumberFormat('es-CO', {
+      style: 'currency',
+      currency: 'COP',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    }).format(total);
   }
 }

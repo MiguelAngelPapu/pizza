@@ -16,146 +16,146 @@ class ProductSeeder extends Seeder
     public function run(): void
     {
         $products = [
-            // All products
+            // Todos los productos
             [
                 'id' => 'P002',
-                'name' => 'Fresh Farm House',
-                'description' => 'crisp capsicum, succulent mushrooms and fresh tomatoes',
-                'price' => 14.25,
+                'name' => 'Casa de Campo Fresca',
+                'description' => 'Pimientos crujientes, champiñones suculentos y tomates frescos',
+                'price' => 57000, // $14.25 USD
                 'imageUrl' => '/assets/img/product1.png',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'id' => 'P003',
-                'name' => 'Peppy Paneer',
-                'description' => 'Chunky paneer with crisp capsicum and spicy red pepper',
-                'price' => 16.75,
+                'name' => 'Paneer Picante',
+                'description' => 'Paneer en trozos con pimientos crujientes y chile rojo picante',
+                'price' => 67000, // $16.75 USD
                 'imageUrl' => '/assets/img/product2.png',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'id' => 'P004',
-                'name' => 'Mexican Green Wave',
-                'description' => 'A pizza loaded with crunchy onions, crisp capsicum, juicy tomatoes',
-                'price' => 20.00,
+                'name' => 'Ola Verde Mexicana',
+                'description' => 'Una pizza cargada con cebollas crujientes, pimientos, tomates jugosos',
+                'price' => 80000, // $20.00 USD
                 'imageUrl' => '/assets/img/product3.png',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'id' => 'P005',
-                'name' => 'Peppy Paneer',
-                'description' => 'Chunky paneer with crisp capsicum and spicy red pepper',
-                'price' => 16.75,
+                'name' => 'Paneer Picante',
+                'description' => 'Paneer en trozos con pimientos crujientes y chile rojo picante',
+                'price' => 67000, // $16.75 USD
                 'imageUrl' => '/assets/img/product4.png',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'id' => 'P006',
-                'name' => 'Mexican Green Wave',
-                'description' => 'A pizza loaded with crunchy onions, crisp capsicum, juicy tomatoes',
-                'price' => 20.00,
+                'name' => 'Ola Verde Mexicana',
+                'description' => 'Una pizza cargada con cebollas crujientes, pimientos, tomates jugosos',
+                'price' => 80000, // $20.00 USD
                 'imageUrl' => '/assets/img/product5.png',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'id' => 'P007',
-                'name' => 'Mexican Green Wave',
-                'description' => 'A pizza loaded with crunchy onions, crisp capsicum, juicy tomatoes',
-                'price' => 20.00,
+                'name' => 'Ola Verde Mexicana',
+                'description' => 'Una pizza cargada con cebollas crujientes, pimientos, tomates jugosos',
+                'price' => 80000, // $20.00 USD
                 'imageUrl' => '/assets/img/product5.png',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'id' => 'P008',
-                'name' => 'Mexican Green Wave',
-                'description' => 'A pizza loaded with crunchy onions, crisp capsicum, juicy tomatoes',
-                'price' => 20.00,
+                'name' => 'Ola Verde Mexicana',
+                'description' => 'Una pizza cargada con cebollas crujientes, pimientos, tomates jugosos',
+                'price' => 80000, // $20.00 USD
                 'imageUrl' => '/assets/img/product5.png',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             
-            // Starters
+            // Entrantes
             [
                 'id' => 'ST001',
-                'name' => 'Garlic Bread',
-                'description' => 'Freshly baked bread topped with garlic butter, herbs, and a sprinkle of parmesan',
-                'price' => 5.99,
+                'name' => 'Pan de Ajo',
+                'description' => 'Pan recién horneado cubierto con mantequilla de ajo, hierbas y una pizca de parmesano',
+                'price' => 24000, // $5.99 USD
                 'imageUrl' => '/assets/img/not-found-pizza.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'id' => 'ST002',
-                'name' => 'Mozzarella Sticks',
-                'description' => 'Crispy breaded mozzarella sticks served with tangy marinara sauce',
-                'price' => 7.50,
+                'name' => 'Palitos de Mozzarella',
+                'description' => 'Palitos de mozzarella empanizados crujientes servidos con salsa marinara',
+                'price' => 30000, // $7.50 USD
                 'imageUrl' => '/assets/img/not-found-pizza.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'id' => 'ST003',
-                'name' => 'Chicken Wings',
-                'description' => 'Juicy chicken wings tossed in your choice of sauce: buffalo, BBQ, or honey garlic',
-                'price' => 9.95,
+                'name' => 'Alitas de Pollo',
+                'description' => 'Jugosas alitas de pollo bañadas en tu salsa favorita: búfalo, BBQ o miel con ajo',
+                'price' => 39800, // $9.95 USD
                 'imageUrl' => '/assets/img/not-found-pizza.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             
-            // Asian
+            // Asiática
             [
                 'id' => 'AS001',
-                'name' => 'Vegetable Spring Rolls',
-                'description' => 'Crispy rolls filled with cabbage, carrots, and mushrooms, served with sweet chili sauce',
-                'price' => 6.50,
+                'name' => 'Rollos Primavera de Verduras',
+                'description' => 'Rollos crujientes rellenos de repollo, zanahorias y champiñones, servidos con salsa de chile dulce',
+                'price' => 26000, // $6.50 USD
                 'imageUrl' => '/assets/img/not-found-pizza.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'id' => 'AS002',
-                'name' => 'Chicken Satay',
-                'description' => 'Grilled chicken skewers marinated in exotic spices, served with peanut sauce',
-                'price' => 9.25,
+                'name' => 'Satay de Pollo',
+                'description' => 'Brochetas de pollo a la parrilla marinadas en especias exóticas, servidas con salsa de maní',
+                'price' => 37000, // $9.25 USD
                 'imageUrl' => '/assets/img/not-found-pizza.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             
-            // Plancha & roasts & grills
+            // Plancha, asados y parrilla
             [
                 'id' => 'PR001',
-                'name' => 'Grilled Ribeye Steak',
-                'description' => '12oz ribeye steak grilled to your liking, served with roasted vegetables and fries',
-                'price' => 24.95,
+                'name' => 'Ribeye a la Parrilla',
+                'description' => 'Bistec ribeye de 340g a la parrilla a tu gusto, servido con verduras asadas y papas fritas',
+                'price' => 99800, // $24.95 USD
                 'imageUrl' => '/assets/img/not-found-pizza.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             [
                 'id' => 'PR002',
-                'name' => 'Roast Chicken',
-                'description' => 'Half chicken roasted with herbs and garlic, served with rosemary potatoes',
-                'price' => 16.50,
+                'name' => 'Pollo Asado',
+                'description' => 'Medio pollo asado con hierbas y ajo, servido con papas al romero',
+                'price' => 66000, // $16.50 USD
                 'imageUrl' => '/assets/img/not-found-pizza.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
             
-            // Classic
+            // Clásica
             [
                 'id' => 'CL001',
-                'name' => 'Classic Margherita',
-                'description' => 'Traditional pizza with tomato sauce, fresh mozzarella, basil leaves, and olive oil',
-                'price' => 12.95,
+                'name' => 'Margarita Clásica',
+                'description' => 'Pizza tradicional con salsa de tomate, mozzarella fresca, hojas de albahaca y aceite de oliva',
+                'price' => 51800, // $12.95 USD
                 'imageUrl' => '/assets/img/not-found-pizza.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),
@@ -163,8 +163,8 @@ class ProductSeeder extends Seeder
             [
                 'id' => 'CL002',
                 'name' => 'Pepperoni',
-                'description' => 'Tomato sauce, mozzarella cheese and pepperoni slices',
-                'price' => 13.75,
+                'description' => 'Salsa de tomate, queso mozzarella y rodajas de pepperoni',
+                'price' => 55000, // $13.75 USD
                 'imageUrl' => '/assets/img/not-found-pizza.jpg',
                 'created_at' => now(),
                 'updated_at' => now(),

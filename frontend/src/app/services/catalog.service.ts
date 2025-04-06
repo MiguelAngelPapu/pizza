@@ -18,7 +18,7 @@ export class CatalogService {
     public shoppingCartService: ShoppingCartService) {
       
   }
-  findProductsByCategory(id: string = this.categiriesService.categorie): Observable<any> {
+  findProductsByCategory(id: string): Observable<any> {
     return this.http.get(`${this.url}/category/${id}`);
   }
 
