@@ -19,7 +19,8 @@ class DatabaseSeeder extends Seeder
             CategoriesSeeder::class,
             MenusSeeder::class,
             SizeSeeder::class,
-            CrustSeeder::class
+            CrustSeeder::class,
+            ToppingSeeder::class
         ]);
     }
 }

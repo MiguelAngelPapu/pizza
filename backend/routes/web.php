@@ -6,6 +6,7 @@ use App\Http\Controllers\CatalogsController;
 use App\Http\Controllers\CategoriesController;
 use App\Http\Controllers\SizesController;
 use App\Http\Controllers\CrustsController;
+use App\Http\Controllers\ToppingsController;
 
 Route::prefix('/product')->name('PRODUCTS.')->group(function () {
     Route::resource('/', ProductsController::class)->parameters(['' => 'id'])->names([
@@ -51,6 +52,16 @@ Route::prefix('/size')->name('SIZES.')->group(function () {
 
 Route::prefix('/crust')->name('CRUST.')->group(function () {
     Route::resource('/', CrustsController::class)->parameters(['' => 'id'])->names([
+        'show' => 'SHOW',
+        'index' => 'INDEX',
+        'store' => 'STORE',
+        'update' => 'UPDATE',
+        'destroy' => 'DELETE'
+    ]);
+});
+
+Route::prefix('/topping')->name('TOPPINGS.')->group(function () {
+    Route::resource('/', ToppingsController::class)->parameters(['' => 'id'])->names([
         'show' => 'SHOW',
         'index' => 'INDEX',
         'store' => 'STORE',

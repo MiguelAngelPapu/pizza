@@ -1,15 +1,34 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
+
+interface Topping {
+  id: number;
+  name: string;
+  image_url: string;
+  price: number;
+  active: boolean;
+}
 @Injectable({
   providedIn: 'root'
 })
 export class ToppingProductService {
-  public toppingStyles = [
-      { id: 1, name: 'Style 1', imageUrl: '/assets/img/topping-style.png', active: true },
-      { id: 2, name: 'Style 2', imageUrl: '/assets/img/topping-style2.png' },
-      // { id: 3, name: 'Style 3', imageUrl: '/assets/img/topping-style3.png'},
-      // { id: 4, name: 'Style 4', imageUrl: '/assets/img/topping-style4.png'},
-      // { id: 5, name: 'Style 5', imageUrl: '/assets/img/topping-style5.png'}
-    ]
-  constructor() { }
+  protected url: string = 'http://192.168.1.94:5009/topping';
+
+  public toppingStyles: Topping [] = [];
+  constructor(
+    private http: HttpClient
+  ) { 
+    this.findToppingStyles().subscribe((res: any) => {
+      this.toppingStyles = res.map((topping: any) => ({
+        ...topping,
+        active: false
+      }));
+    }
+    );
+  }
+  public findToppingStyles(): Observable<any> {
+      return this.http.get(`${this.url}`);
+  }
 }
