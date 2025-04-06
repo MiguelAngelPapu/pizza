@@ -21,17 +21,41 @@ class ToppingSeeder extends Seeder
         $toppings = [
             [
                 'id' => 1,
-                'name' => 'Style 1',
+                'name' => 'Clásico Italiano',
                 'image_url' => '/assets/img/topping-style.png',
-                'price' => 0, // Agregué precio ya que es requerido en la migración
+                'price' => 5900, // Precio en pesos colombianos
                 'created_at' => $now,
                 'updated_at' => $now
             ],
             [
                 'id' => 2,
-                'name' => 'Style 2',
+                'name' => 'Extra Queso',
                 'image_url' => '/assets/img/topping-style2.png',
-                'price' => 0, // Agregué precio ya que es requerido en la migración
+                'price' => 7500, // Precio en pesos colombianos
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'id' => 3,
+                'name' => 'Pepperoni',
+                'image_url' => '/assets/img/topping-style4.png',
+                'price' => 6500,
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'id' => 4,
+                'name' => 'Jamon',
+                'image_url' => '/assets/img/topping-style6.png',
+                'price' => 4900,
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'id' => 5,
+                'name' => 'Champiñones',
+                'image_url' => '/assets/img/topping-style3.png',
+                'price' => 3900,
                 'created_at' => $now,
                 'updated_at' => $now
             ]

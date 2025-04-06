@@ -32,6 +32,41 @@ class CrustSeeder extends Seeder
                 'extra_price' => 4000,
                 'created_at' => $now,
                 'updated_at' => $now
+            ],
+            [
+                'id' => 3,
+                'name' => 'Corteza delgada',
+                'extra_price' => 0,
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'id' => 4,
+                'name' => 'Rellena de queso',
+                'extra_price' => 6500,
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'id' => 5,
+                'name' => 'Corteza integral',
+                'extra_price' => 3000,
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'id' => 6,
+                'name' => 'Corteza sin gluten',
+                'extra_price' => 8000,
+                'created_at' => $now,
+                'updated_at' => $now
+            ],
+            [
+                'id' => 7,
+                'name' => 'Corteza de pan',
+                'extra_price' => 2500,
+                'created_at' => $now,
+                'updated_at' => $now
             ]
         ];
         

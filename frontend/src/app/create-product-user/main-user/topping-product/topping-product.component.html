@@ -3,6 +3,10 @@
     <ul class="ul__container-image selected__chosen-topping">
         @for (topping of customProductService.toppingProductService.toppingStyles; track topping.id) {
             <li [class.active]="topping.active">
+                <div class="topping__info">
+                    <h5>{{ topping.name }}</h5>
+                    <span>{{ customProductService.toppingProductService.toppingForPrice(topping) }}</span>
+                </div>
                 <a [routerLink]="['/create-pizza', {
                     size: customProductService.custom.size,
                     crust: customProductService.custom.crust,

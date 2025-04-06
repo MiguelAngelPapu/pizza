@@ -31,4 +31,12 @@ export class ToppingProductService {
   public findToppingStyles(): Observable<any> {
       return this.http.get(`${this.url}`);
   }
+  public toppingForPrice(topping: Topping): string{
+    return new Intl.NumberFormat('es-CO', {
+      style: 'currency',
+      currency: 'COP',
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0
+    }).format(topping.price);
+  }
 }

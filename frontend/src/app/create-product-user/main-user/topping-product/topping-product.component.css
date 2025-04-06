@@ -1,0 +1,24 @@
+.selected__chosen-topping li{
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+.topping__info{
+   text-align: center;
+}
+.topping__info h5{
+    color: var(--color-7);
+    font-weight: normal;
+}
+.topping__info span{
+    
+}
+.selected__chosen-topping li.active .topping__info h5{
+    color: var(--color-2);
+}
+.selected__chosen-topping li.active .topping__info span{
+    color: var(--color-5);
+    font-family: "Signika-SemiBold";
+    font-size: 16px;
+    text-align: center;
+}

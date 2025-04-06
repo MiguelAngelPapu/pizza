@@ -44,7 +44,7 @@ main{
 
 .ul__container > li,
 .ul__container-image > li {
-    margin-top: 3%;
+    margin-top: 5%;
     border-radius: 15px;
     list-style: none;
     padding: 5px;
@@ -66,14 +66,13 @@ main{
 }
 .ul__container-image > li {
     background: transparent;
-    height: 130px;
+    height: 160px;
     display: flex;
     justify-content: center;
     align-items: center;
     min-width: 48.5%;
 }
 .ul__container-image > li a{
-    background: blue;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -84,13 +83,16 @@ main{
     outline: none;
 }
 .ul__container-image > li.active a{
-    outline: 2px solid var(--color-4);
-    border: 5px solid var(--color-1);
-    box-shadow: 0px 0px 4px 4px var(--color-5);
+    box-sizing: border-box;
+    width: 110px;
+    height: 110px;
+    outline: 4px solid var(--color-1);
+    /* border: 1px solid var(--color-1); */
+    box-shadow: 0px 0px 4px 7px var(--color-5);
 }
 .ul__container-image > li a img{
-    width: 100%;
-    height: 100%;
+    width: 110px;
+    height: 110px;
     border-radius: 0px;
     object-fit: cover;
 }
