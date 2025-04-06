@@ -30,7 +30,7 @@ export class ProductsService {
           minimumFractionDigits: 0,
           maximumFractionDigits: 0
         }).format(product.price ?? 0);
-      }
+    }
     set products(products: any) {
         this._products = products;
     }

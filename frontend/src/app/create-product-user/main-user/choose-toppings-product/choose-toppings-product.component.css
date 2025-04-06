@@ -1,0 +1,19 @@
+.section__options__list li a {
+    position: relative;
+}
+.section__options__list li a img{
+    width: 35px;
+    height: 35px;
+    object-fit: cover;
+    position: absolute;
+    top: -22px;
+    right: -11px;
+    background-color: var(--color-1);
+    border-radius: 100%;
+    border: 1px solid #f4f3f3;
+    /* box-shadow: 0px 0px 4px 1px var(--color-5);  */
+}
+.section__options__list li.active a img{
+    border: 1px solid var(--color-4);
+    box-shadow: 0px 0px 4px 1px var(--color-5);
+}

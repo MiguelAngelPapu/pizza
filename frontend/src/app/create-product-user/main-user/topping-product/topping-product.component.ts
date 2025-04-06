@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
-import { ActivatedRoute, RouterModule } from '@angular/router';
+import { Component, OnInit, OnDestroy, AfterViewInit } from '@angular/core';
+import { Router, NavigationEnd, RouterModule, ActivatedRoute } from '@angular/router';
 import { CustomProductService } from '@services/custom-product.service';
+import { Subscription, filter } from 'rxjs';
 
 @Component({
   selector: 'app-topping-product',
@@ -9,27 +10,54 @@ import { CustomProductService } from '@services/custom-product.service';
   templateUrl: './topping-product.component.html',
   styleUrls: ['./topping-product.component.css', '../main-user.component.css']
 })
-export class ToppingProductComponent {
+export class ToppingProductComponent implements OnInit, OnDestroy, AfterViewInit {
+  private routerSubscription: Subscription | null = null;
+
   constructor(
     public customProductService: CustomProductService,
-    private route: ActivatedRoute
+    private router: Router,
+    private activatedRoute: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
-    this.route.parent?.params.subscribe(params => {
-      if (params['topping']) {
-        const toppingId = +params['topping'];
-        this.customProductService.custom.topping = toppingId;
-        this.updateActivetopping(toppingId);
-      }
+    this.checkUrlForParams();
+
+    // Escucha cambios en la navegación
+    this.routerSubscription = this.router.events.pipe(
+      filter(event => event instanceof NavigationEnd)
+    ).subscribe(() => {
+      this.checkUrlForParams();
     });
   }
+
+  ngAfterViewInit(): void {
+    // Actualiza los toppings después de que la vista esté lista
+    setTimeout(() => {
+      this.updateCrustsActive();
+    }, 200);
+  }
+
+  ngOnDestroy(): void {
+    // Limpiar suscripciones para evitar fugas de memoria
+    if (this.routerSubscription) this.routerSubscription.unsubscribe();
+  }
+
+  // Verifica el parámetro "topping" en la URL y actualiza el servicio
+  private checkUrlForParams(): void {
+    const topping = this.activatedRoute.snapshot.parent?.params['topping'];
+    if (topping) {
+      this.customProductService.custom.topping = +topping;
+      this.updateCrustsActive();
+    }
+  }
   
-  
-  // Método para actualizar la corteza activa
-  updateActivetopping(toppingId: number) {
-    this.customProductService.toppingProductService.toppingStyles.forEach(topping => {
-      topping.active = topping.id === toppingId;
-    });
+  // Actualiza el topping activo basado en el seleccionado
+  private updateCrustsActive(): void {
+    const toppings = this.customProductService.toppingProductService.toppingStyles;
+    if (toppings) {
+      toppings.forEach(topping => {
+        topping.active = topping.id === this.customProductService.custom.topping; 
+      });
+    }
   }
 }

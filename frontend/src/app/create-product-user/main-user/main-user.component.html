@@ -21,7 +21,7 @@
             <!-- queryParamsHandling="preserve" -->
         </footer>
     }
-    @case ("left-half") {
+    @default {
         <main>
             <router-outlet name="choose-topping-parts" />
             <router-outlet name="sauce" />
@@ -31,15 +31,5 @@
             <a href="#">Add to Cart</a>
         </footer> -->
         <!-- queryParamsHandling="preserve" -->
-    }
-    @case ("right-half") {
-        <main>
-            <router-outlet name="choose-topping-parts" />
-            <router-outlet name="sauce" />
-            <router-outlet name="choose" />
-        </main>
-        <!-- <footer>
-            <a href="#">Add to Cart</a>
-        </footer> -->
     }
 }

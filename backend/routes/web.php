@@ -8,6 +8,7 @@ use App\Http\Controllers\SizesController;
 use App\Http\Controllers\CrustsController;
 use App\Http\Controllers\ToppingsController;
 use App\Http\Controllers\SaucesController;
+use App\Http\Controllers\ChooseController;
 
 Route::prefix('/product')->name('PRODUCTS.')->group(function () {
     Route::resource('/', ProductsController::class)->parameters(['' => 'id'])->names([
@@ -74,6 +75,17 @@ Route::prefix('/topping')->name('TOPPINGS.')->group(function () {
 
 Route::prefix('/sauce')->name('SAUCES.')->group(function () {
     Route::resource('/', SaucesController::class)->parameters(['' => 'id'])->names([
+        'show' => 'SHOW',
+        'index' => 'INDEX',
+        'store' => 'STORE',
+        'update' => 'UPDATE',
+        'destroy' => 'DELETE'
+    ]);
+});
+
+
+Route::prefix('/choose')->name('CHOOSES.')->group(function () {
+    Route::resource('/', ChooseController::class)->parameters(['' => 'id'])->names([
         'show' => 'SHOW',
         'index' => 'INDEX',
         'store' => 'STORE',

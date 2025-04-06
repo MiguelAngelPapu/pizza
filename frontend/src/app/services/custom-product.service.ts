@@ -3,6 +3,7 @@ import { SizeProductService } from './size-product.service';
 import { CrustProductService } from './crust-product.service';
 import { ToppingProductService } from './topping-product.service';
 import { SauceProductService } from './sauce-product.service';
+import { ChooseToppingsService } from './choose-toppings.service';
 
 @Injectable({
   providedIn: 'root'
@@ -29,6 +30,7 @@ export class CustomProductService {
     public sizeProductService: SizeProductService,
     public crustProductService: CrustProductService,
     public toppingProductService: ToppingProductService,
-    public sauceProductService: SauceProductService
+    public sauceProductService: SauceProductService,
+    public chooseToppingsService: ChooseToppingsService
   ) { }
 }

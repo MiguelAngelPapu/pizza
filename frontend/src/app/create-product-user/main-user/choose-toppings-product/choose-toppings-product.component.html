@@ -1,10 +1,29 @@
 <section class="section__options">
     <h5>Elija ingredientes</h5>
     <ul class="ul__container section__options__list">
-        @for (choose of chooses; track choose.id) {
+        @for (choose of customProductService.chooseToppingsService.chooses; track choose.id) {
             <li [class.active]="choose.active">
                 <a (click)="toggleSelection(choose.id, $event)">
-                    <span>{{ choose.name }}</span>
+                    @switch (choose.choose_category) {
+                        @case ("gratis") {
+                            <img src="/assets/img/choose_category.png " />
+                        }
+                        @case ("vegano") {
+                            <img src="/assets/img/choose_category2.png " />
+                        }
+                        @case ("sin_gluten") {
+                            <img src="/assets/img/choose_category3.png " />
+                        }
+                        @case ("doble_queso") {
+                            <img src="/assets/img/choose_category4.png " />
+                        }
+                    }
+                    @if (choose.price) {
+                        <h5>{{ choose.name }}</h5>
+                        <span>{{ customProductService.chooseToppingsService.chooseForPrice(choose) }}</span>
+                    }@else {
+                        <span>{{ choose.name }}</span>
+                    }
                 </a>
             </li>
         }
