@@ -1,9 +1,11 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 interface Size {
   id: number;
   name: string;
-  sliceArea: number;
+  slice_area: number;
   slices: number;
   price: number;
   active: boolean;
@@ -12,17 +14,23 @@ interface Size {
   providedIn: 'root'
 })
 export class SizeProductService {
-  public sizes = [
-    { id: 1, name: 'Personal', sliceArea: 62.2, slices: 4, price: 11900, active: false },
-    { id: 2, name: 'Mediana', sliceArea: 76.4, slices: 6, price: 25900, active: false },
-    { id: 3, name: 'Grande', sliceArea: 83.2, slices: 8, price: 35900, active: false },
-    { id: 4, name: 'Familiar', sliceArea: 92.1, slices: 10, price: 50900, active: false }
-  ];
-  constructor() { 
-    
+  protected url: string = 'http://192.168.1.94:5009/size';
+  public sizes: Size[] = [];
+  constructor(
+    private http: HttpClient
+  ) {
+    this.findSizes().subscribe((res: any) => {
+      this.sizes = res.map((size: any) => ({
+        ...size,
+        active: false
+      }));
+    });
+  }
+  public findSizes(): Observable<any> {
+    return this.http.get(`${this.url}`);
   }
   public sizeView(size: Size ): string{
-    return `${size.sliceArea} cm² x ${size.slices}`;
+    return `${size.slice_area} cm² x ${size.slices}`;
   }
   public sizeForPrice(size: Size): string{
     return new Intl.NumberFormat('es-CO', {
