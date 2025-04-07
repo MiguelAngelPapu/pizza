@@ -43,14 +43,14 @@ export class MainUserComponent {
         this.customProductService.page = 2;
         this.customProductService.customViews = 'left-half';
         this.customProductService.custom['left-half'].sauce = params['sauce'];
-        this.customProductService.custom['left-half'].choose = params['choose'];
+        this.customProductService.custom['left-half'].choose = params['choose'].split(',').map(Number);
 
       }else if (this.router.url.includes('/right-half')) {
         this.customProductService.selectParts = false;
         this.customProductService.page = 2;
         this.customProductService.customViews = 'right-half';
         this.customProductService.custom['right-half'].sauce = params['sauce'];
-        this.customProductService.custom['right-half'].choose = params['choose'];
+        this.customProductService.custom['right-half'].choose = params['choose'].split(',').map(Number);;
       }
     });
   }

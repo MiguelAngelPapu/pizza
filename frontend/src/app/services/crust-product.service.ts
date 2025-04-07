@@ -5,7 +5,7 @@ import { Observable } from 'rxjs';
 interface Crust{
   id: number;
   name: string;
-  extra_price?: number;
+  price?: number;
   active?: boolean;
 };
 @Injectable({
@@ -34,6 +34,6 @@ export class CrustProductService {
       currency: 'COP',
       minimumFractionDigits: 0,
       maximumFractionDigits: 0
-    }).format(crust.extra_price ?? 0);
+    }).format(crust.price ?? 0);
   }
 }

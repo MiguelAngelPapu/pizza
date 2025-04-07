@@ -16,15 +16,20 @@ export class ChooseToppingsProductComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private cdr: ChangeDetectorRef
-  ) {}
+  ) {
+    
+    
+  }
 
   ngOnInit(): void {
+   
     setTimeout(() => {
       this.route.parent?.params.subscribe(params => {
         this.selectedIds = params['choose']?.split(',').map(Number) || [];
         this.updateSelections();
+        this.customProductService.createProductService.localStorage = this.customProductService.custom;
       });
-    }, 250);
+    }, 200);
   }
 
   toggleSelection(chooseId: number, event: Event): void {

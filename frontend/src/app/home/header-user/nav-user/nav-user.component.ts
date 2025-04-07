@@ -76,7 +76,7 @@ export class NavUserComponent implements OnInit, OnDestroy {
       this.catalogService.categiriesService.categories.forEach(category => {
         category.active = category.id === categoryId;
       });
-    },150);
+    },200);
    
   }
 }

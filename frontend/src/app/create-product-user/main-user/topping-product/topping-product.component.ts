@@ -8,7 +8,7 @@ import { Subscription, filter } from 'rxjs';
   standalone: true,
   imports: [RouterModule],
   templateUrl: './topping-product.component.html',
-  styleUrls: ['./topping-product.component.css', '../main-user.component.css']
+  styleUrl: './topping-product.component.css'
 })
 export class ToppingProductComponent implements OnInit, OnDestroy, AfterViewInit {
   private routerSubscription: Subscription | null = null;
@@ -27,6 +27,7 @@ export class ToppingProductComponent implements OnInit, OnDestroy, AfterViewInit
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
       this.checkUrlForParams();
+      this.customProductService.createProductService.localStorage = this.customProductService.custom;
     });
   }
 
@@ -54,6 +55,7 @@ export class ToppingProductComponent implements OnInit, OnDestroy, AfterViewInit
   // Actualiza el topping activo basado en el seleccionado
   private updateCrustsActive(): void {
     const toppings = this.customProductService.toppingProductService.toppingStyles;
+    this.customProductService.createProductService.localStorage = this.customProductService.custom;
     if (toppings) {
       toppings.forEach(topping => {
         topping.active = topping.id === this.customProductService.custom.topping; 

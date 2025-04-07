@@ -8,7 +8,7 @@ import { Subscription, filter } from 'rxjs';
   standalone: true,
   imports: [RouterModule],
   templateUrl: './size-product.component.html',
-  styleUrls: ['./size-product.component.css', '../main-user.component.css']
+  styleUrl: './size-product.component.css'
 })
 export class SizeProductComponent implements OnInit, OnDestroy, AfterViewInit {
   private routerSubscription: Subscription | null = null; // Suscripción para escuchar cambios en la navegación
@@ -27,6 +27,7 @@ export class SizeProductComponent implements OnInit, OnDestroy, AfterViewInit {
       filter(event => event instanceof NavigationEnd) // Filtrar solo eventos de navegación finalizada
     ).subscribe(() => {
       this.checkUrlForParams(); // Actualizar parámetros al cambiar la URL
+      this.customProductService.createProductService.localStorage = this.customProductService.custom;
     });
   }
 

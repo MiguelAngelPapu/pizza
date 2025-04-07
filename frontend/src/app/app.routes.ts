@@ -8,6 +8,7 @@ import { ToppingProductComponent } from './create-product-user/main-user/topping
 import { ProductPartsComponent } from './create-product-user/main-user/product-parts/product-parts.component';
 import { SauceProductComponent } from './create-product-user/main-user/sauce-product/sauce-product.component';
 import { ChooseToppingsProductComponent } from './create-product-user/main-user/choose-toppings-product/choose-toppings-product.component';
+import { AddCartProductComponent } from './create-product-user/main-user/add-cart-product/add-cart-product.component';
 
 export const routes: Routes = [
     {
@@ -38,7 +39,8 @@ export const routes: Routes = [
         children: [
             { path: '', component: ProductPartsComponent, outlet: 'choose-topping-parts' },
             { path: '', component: SauceProductComponent, outlet: 'sauce' },
-            { path: '', component: ChooseToppingsProductComponent, outlet: 'choose' }
+            { path: '', component: ChooseToppingsProductComponent, outlet: 'choose' },
+            { path: '', component: AddCartProductComponent, outlet: 'add-cart' }
         ]
     },
     { 
@@ -47,7 +49,8 @@ export const routes: Routes = [
         children: [
             { path: '', component: ProductPartsComponent, outlet: 'choose-topping-parts' },
             { path: '', component: SauceProductComponent, outlet: 'sauce' },
-            { path: '', component: ChooseToppingsProductComponent, outlet: 'choose' }
+            { path: '', component: ChooseToppingsProductComponent, outlet: 'choose' },
+            { path: '', component: AddCartProductComponent, outlet: 'add-cart' }
         ]
     },
     {

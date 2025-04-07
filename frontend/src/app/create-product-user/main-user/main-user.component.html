@@ -11,7 +11,7 @@
             <router-outlet name="topping" />
         </main>
         <footer>
-            <a [routerLink]="[
+            <a class="next__button" [routerLink]="[
                 '/left-half',
                 {
                     sauce: customProductService.custom['left-half'].sauce,
@@ -27,9 +27,6 @@
             <router-outlet name="sauce" />
             <router-outlet name="choose" />
         </main>
-        <!-- <footer>
-            <a href="#">Add to Cart</a>
-        </footer> -->
-        <!-- queryParamsHandling="preserve" -->
+        <router-outlet name="add-cart" />
     }
 }

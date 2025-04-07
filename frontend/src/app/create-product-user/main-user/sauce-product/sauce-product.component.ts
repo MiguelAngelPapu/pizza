@@ -8,7 +8,7 @@ import { Subscription, filter } from 'rxjs';
   standalone: true,
   imports: [RouterModule],
   templateUrl: './sauce-product.component.html',
-  styleUrls: ['./sauce-product.component.css', '../main-user.component.css']
+  styleUrl: './sauce-product.component.css',
 })
 export class SauceProductComponent implements OnInit, OnDestroy, AfterViewInit {
   public customViews: 'left-half' | 'right-half' = 'left-half'; // Vista personalizada del producto.
@@ -32,6 +32,7 @@ export class SauceProductComponent implements OnInit, OnDestroy, AfterViewInit {
       filter(event => event instanceof NavigationEnd)
     ).subscribe(() => {
       this.checkUrlForParams();
+      this.customProductService.createProductService.localStorage = this.customProductService.custom;
     });
   }
 

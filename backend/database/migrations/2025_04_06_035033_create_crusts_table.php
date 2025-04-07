@@ -14,7 +14,9 @@ return new class extends Migration
         Schema::create('crusts', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->float('extra_price', 53, 0)->default(0); // Cambié "extra-price" a "extra_price" para seguir convenciones de Laravel
+            $table->float('price', 53, 0)
+            ->default(0)
+            ->comment('Precio extra por la cubierta seleccionada. Este valor adicional se debe a que la cubierta requiere un tipo de preparación diferente, lo que incrementa los costos del producto.');
             $table->timestamps();
         });
     }

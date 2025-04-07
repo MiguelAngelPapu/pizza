@@ -8,54 +8,56 @@ import { Subscription, filter } from 'rxjs';
   standalone: true,
   imports: [RouterModule],
   templateUrl: './crust-product.component.html',
-  styleUrls: ['./crust-product.component.css', '../main-user.component.css']
+  styleUrl: './crust-product.component.css'
 })
 export class CrustProductComponent implements OnInit, OnDestroy, AfterViewInit {
-  private routerSubscription: Subscription | null = null;
+  private routerSubscription: Subscription | null = null; // Suscripción para escuchar cambios en la navegación
 
   constructor(
     public customProductService: CustomProductService,
-    private router: Router,
-    private activatedRoute: ActivatedRoute
+    private router: Router, // Router para escuchar eventos de navegación
+    private activatedRoute: ActivatedRoute // Ruta activa para obtener parámetros
   ) { }
 
   ngOnInit(): void {
-    this.checkUrlForParams();
+    this.checkUrlForParams(); // Verificar parámetros iniciales en la URL
 
-    // Escuchar cambios de navegación
+    // Escuchar cambios en la URL y actualizar parámetros
     this.routerSubscription = this.router.events.pipe(
-      filter(event => event instanceof NavigationEnd)
+      filter(event => event instanceof NavigationEnd) // Filtrar solo eventos de navegación finalizada
     ).subscribe(() => {
-      this.checkUrlForParams();
+      this.checkUrlForParams(); // Actualizar parámetros al cambiar la URL
+      this.customProductService.createProductService.localStorage = this.customProductService.custom;
     });
   }
 
   ngAfterViewInit(): void {
-    // Actualizar los crusts después de que la vista esté lista
+    // Actualizar el estado de los crusts después de que la vista esté lista
     setTimeout(() => {
-      this.updateCrustsActive();
+      this.updateCrustActive();
     }, 200);
   }
+
   ngOnDestroy(): void {
     // Limpiar suscripciones para evitar fugas de memoria
     if (this.routerSubscription) this.routerSubscription.unsubscribe();
   }
 
-  // Verificar el parámetro "crust" en la URL y actualizar el servicio
+  // Verifica si hay un parámetro "crust" en la URL y lo asigna al servicio
   private checkUrlForParams(): void {
-    const crust = this.activatedRoute.snapshot.parent?.params['crust'];
+    const crust = this.activatedRoute.snapshot.parent?.params['crust']; // Obtener el parámetro "crust"
     if (crust) {
-      this.customProductService.custom.crust = +crust;
-      this.updateCrustsActive();
+      this.customProductService.custom.crust = +crust; // Asignar el crust al servicio
+      this.updateCrustActive(); // Actualizar el estado de los crusts
     }
   }
   
-  // Actualizar el crust activo basado en el crust seleccionado
-  private updateCrustsActive(): void {
-    const crusts = this.customProductService.crustProductService.crusts;
+  // Marca el crust activo basado en el crust seleccionado
+  private updateCrustActive(): void {
+    const crusts = this.customProductService.crustProductService.crusts; // Obtener lista de crusts
     if (crusts) {
       crusts.forEach(crust => {
-        crust.active = crust.id === this.customProductService.custom.crust; 
+        crust.active = crust.id === this.customProductService.custom.crust; // Activar el crust seleccionado
       });
     }
   }
