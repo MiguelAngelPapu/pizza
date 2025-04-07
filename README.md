@@ -1,3 +1,11 @@
+### UI
+
+![](UI.png)
+
+### ERM
+
+![](ERM.png)
+
 ### 🛠️ Paso a Paso de Instalación del Proyecto `pizza`
 
 #### 1️⃣ Clona el repositorio (si aplica)
