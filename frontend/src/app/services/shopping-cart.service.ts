@@ -8,7 +8,7 @@ export class ShoppingCartService {
   public shoppingCartData: any;
 
   constructor() {
-    this.findProductShoppingCart();
+    this.updateShoppingCartSummary();
   }
 
   set localStorage(value: Array<any>) {
@@ -27,21 +27,16 @@ export class ShoppingCartService {
       return [];
     }
   }
-  findProductShoppingCart(){
-    if (this.localStorage.length) {
-      const shopping = this.localStorage;
-      // Calculate total price of the shopping cart
-      let total = shopping.reduce((acc: number, item: any) => {
-        return acc + (item.price || 0);
-      }, 0);
-      // Redondea a 2 decimales para evitar errores de punto flotante
-      total = this.shoppingCartForPrice(Number(total));
-      this.shoppingCartData = { count: this.localStorage.length, total };
-
-    } else {
-      this.shoppingCartData = { count: 0, total: 0 };
-    }
+  updateShoppingCartSummary() {
+    const shoppingCartItems = this.localStorage;
+    const totalPrice = shoppingCartItems.reduce((accumulator, item) => {
+      // Si el producto no es personalizado, y se seleciono en la vista de productos
+      return accumulator + (item.price * item.amount);
+     
+    }, 0);
+    this.shoppingCartData = { count: shoppingCartItems.length, total: this.shoppingCartForPrice(totalPrice) };
   }
+  
   public shoppingCartForPrice(total: number): string{
     return new Intl.NumberFormat('es-CO', {
       style: 'currency',

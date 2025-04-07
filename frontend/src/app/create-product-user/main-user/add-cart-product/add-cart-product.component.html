@@ -1,5 +1,5 @@
 <footer>
-    <a href="#">
+    <a (click)="addToCart($event)">
         <span>Añadir al carrito</span>
         <div class="section__bubble">
             <strong>{{ customProductService.calculateTotalInCart() }}</strong>

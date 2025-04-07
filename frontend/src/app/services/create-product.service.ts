@@ -28,4 +28,8 @@ export class CreateProductService {
       return [];
     }
   } 
+  clearLocalStorage(): void {
+    localStorage.removeItem(this.SHOP_KEY);
+    this.createProduct = [];
+  }
 }

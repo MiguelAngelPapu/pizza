@@ -28,13 +28,24 @@ export class ProductUserComponent implements OnInit {
       
     }
     addProductShoppingCart(product: Product): void {
-      const shopping = this.catalogService.shoppingCartService.localStorage
-      const {id, price} = product
-      shopping.push({id, price});
-      if(price == null) return;
+      const shopping = this.catalogService.shoppingCartService.localStorage;
+      const { id, price } = product;
+
+      // Buscamos si el producto ya existe en el localStorage con el id
+      // Si el producto ya existe en el carrito devolvemos el producto para su validación
+      const productInCart = shopping.find((item: any) => item.id === id);
+      
+      // Si el producto ya existe en el carrito, incrementa la cantidad
+      if (productInCart)  productInCart.amount = (productInCart.amount || 0) + 1;
+      // Si el producto no existe, lo agrega la prpóedad amount y lo inicializa en 1
+      else shopping.push({ id, price, amount: 1, custom: false});
+      
+
       this.catalogService.shoppingCartService.localStorage = shopping;
-      this.catalogService.shoppingCartService.findProductShoppingCart();
+      this.catalogService.shoppingCartService.updateShoppingCartSummary();
     }
+
+   
     ngOnInit(): void {
       this.route.paramMap.subscribe(params => {
 

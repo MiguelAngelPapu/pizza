@@ -14,6 +14,8 @@ export class CustomProductService {
   public selectParts: true | false = true;
   public customViews: 'create-pizza' | 'left-half' | 'right-half' = 'create-pizza';
   public page: 1 | 2 = 1;
+  public shopping: Array<any> = [];
+  public total: number = 0;
 
   public custom = {
     size: 1 as number | null,
@@ -38,31 +40,31 @@ export class CustomProductService {
   ) { }
 
   public calculateTotalInCart(): string {
-    const total = this.calculatePartTotal([
+    const parts = this.getPartsForCalculation(); 
+    this.total = this.calculateTotal(parts); ;
+    return this.formatCurrency(this.total);
+  }
+
+  private getPartsForCalculation(): Array<{ collection: Array<any>, id: number | null }> {
+    const leftHalfParts = this.custom['left-half'].choose.map(id => ({ collection: this.chooseToppingsService.chooses, id }));
+    const rightHalfParts = this.custom['right-half'].choose.map(id => ({ collection: this.chooseToppingsService.chooses, id }));
+
+    return [
       { collection: this.sizeProductService.sizes, id: this.custom.size },
       { collection: this.crustProductService.crusts, id: this.custom.crust },
       { collection: this.toppingProductService.toppingStyles, id: this.custom.topping },
       { collection: this.sauceProductService.sauces, id: this.custom['left-half'].sauce },
-      { collection: this.sauceProductService.sauces, id: this.custom['right-half'].sauce }
-    ]) + this.calculateToppingsTotal(this.custom['left-half'].choose) 
-      + this.calculateToppingsTotal(this.custom['right-half'].choose);
-
-    return this.formatCurrency(total);
+      { collection: this.sauceProductService.sauces, id: this.custom['right-half'].sauce },
+      ...leftHalfParts,
+      ...rightHalfParts
+    ];
   }
 
-  private calculatePartTotal(parts: Array<{ collection: Array<any>, id: number | null }>): number {
-    return parts.reduce((sum, part) => {
-      return sum + (part.id !== null ? this.searchPrice(part.collection, part.id) : 0);
-    }, 0);
+  private calculateTotal(parts: Array<{ collection: Array<any>, id: number | null }>): number {
+    return parts.reduce((sum, part) => sum + this.getItemPrice(part.collection, part.id), 0);
   }
 
-  private calculateToppingsTotal(toppings: Array<number>): number {
-    return toppings.reduce((sum, id) => {
-      return sum + (id !== null ? this.searchPrice(this.chooseToppingsService.chooses, id) : 0);
-    }, 0);
-  }
-
-  private searchPrice(collection: Array<any>, id: number): number {
+  private getItemPrice(collection: Array<any>, id: number | null): number {
     const item = collection.find(item => item.id === id);
     return item ? item.price : 0;
   }
@@ -71,9 +73,7 @@ export class CustomProductService {
     return new Intl.NumberFormat('es-CO', {
       style: 'currency',
       currency: 'COP',
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0
+      minimumFractionDigits: 0
     }).format(amount);
   }
-
 }
