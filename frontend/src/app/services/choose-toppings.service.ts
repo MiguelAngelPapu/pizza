@@ -14,7 +14,7 @@ interface Choose {
   providedIn: 'root'
 })
 export class ChooseToppingsService {
-  protected url: string = 'http://192.168.1.94:5009/choose';
+  protected url: string = 'http://192.168.1.94:5009/api/choose';
   public chooses: Choose[] = [];
   constructor(
     private http: HttpClient

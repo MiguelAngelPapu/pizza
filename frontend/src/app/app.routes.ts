@@ -1,6 +1,7 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
 import { ProductUserComponent } from './home/main-user/product-user/product-user.component';
+import { ProductUserComponent as ShoppingCartProductUserComponent } from './shopping-cart/main-user/product-user/product-user.component';
 import { CreateProductUserComponent } from './create-product-user/create-product-user.component';
 import { SizeProductComponent } from './create-product-user/main-user/size-product/size-product.component';
 import { CrustProductComponent } from './create-product-user/main-user/crust-product/crust-product.component';
@@ -9,6 +10,9 @@ import { ProductPartsComponent } from './create-product-user/main-user/product-p
 import { SauceProductComponent } from './create-product-user/main-user/sauce-product/sauce-product.component';
 import { ChooseToppingsProductComponent } from './create-product-user/main-user/choose-toppings-product/choose-toppings-product.component';
 import { AddCartProductComponent } from './create-product-user/main-user/add-cart-product/add-cart-product.component';
+import { ShoppingCartComponent } from './shopping-cart/shopping-cart.component';
+import { HeaderUserComponent } from './shopping-cart/header-user/header-user.component';
+import { MainUserComponent } from './shopping-cart/main-user/main-user.component';
 
 export const routes: Routes = [
     {
@@ -51,6 +55,13 @@ export const routes: Routes = [
             { path: '', component: SauceProductComponent, outlet: 'sauce' },
             { path: '', component: ChooseToppingsProductComponent, outlet: 'choose' },
             { path: '', component: AddCartProductComponent, outlet: 'add-cart' }
+        ]
+    },
+    { 
+        path: 'shopping-cart',
+        component: ShoppingCartComponent,
+        children: [
+            { path: '', component: ShoppingCartProductUserComponent, outlet: 'product-user' }
         ]
     },
     {

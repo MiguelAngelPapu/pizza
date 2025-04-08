@@ -1,0 +1,9 @@
+<header>
+    <a [routerLink]="['/home']"><img src="/assets/img/back2.png" alt="" srcset=""></a>
+    @if(showSearch) {
+        <app-search-shopping-cart #inputComponent/>
+    }@else {
+        <div class="header__title">{{ name }}</div>
+    }
+    <div (click)="showFormSearchProducts()" ><img src="/assets/img/search.svg" alt="" srcset=""></div>
+</header>

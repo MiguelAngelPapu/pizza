@@ -3,18 +3,17 @@ import { RouterModule } from '@angular/router';
 import { ShoppingCartService } from '@services/shopping-cart.service';
 
 @Component({
-  selector: 'app-bubble-buy-user',
-  standalone: true,  // Añade esta línea
+  selector: 'app-main-user',
+  standalone: true,
   imports: [RouterModule],
-  templateUrl: './bubble-buy-user.component.html',
-  styleUrl: './bubble-buy-user.component.css'
+  templateUrl: './main-user.component.html',
+  styleUrl: './main-user.component.css'
 })
-export class BubbleBuyUserComponent implements OnInit {
-  
+export class MainUserComponent implements OnInit {
   constructor(
     public shoppingCartService: ShoppingCartService
   ) {
-    
+
   }
   ngOnInit(): void {
     this.shoppingCartService.updateShoppingCartSummary();

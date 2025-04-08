@@ -7,7 +7,7 @@ import { Observable } from 'rxjs';
     providedIn: 'root'
 })
 export class CategiriesService {
-    protected url: string = 'http://192.168.1.94:5009/category';
+    protected url: string = 'http://192.168.1.94:5009/api/category';
     public categories: Array<any> = [
         { id: 0, name: 'Todos', active: true },
     ]

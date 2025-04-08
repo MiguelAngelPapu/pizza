@@ -12,7 +12,7 @@ interface Crust{
   providedIn: 'root'
 })
 export class CrustProductService {
-  protected url: string = 'http://192.168.1.94:5009/crust';
+  protected url: string = 'http://192.168.1.94:5009/api/crust';
   public crusts: Crust[] = [];
   constructor(
     private http: HttpClient

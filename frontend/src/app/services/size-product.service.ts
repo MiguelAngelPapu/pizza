@@ -14,7 +14,7 @@ interface Size {
   providedIn: 'root'
 })
 export class SizeProductService {
-  protected url: string = 'http://192.168.1.94:5009/size';
+  protected url: string = 'http://192.168.1.94:5009/api/size';
   public sizes: Size[] = [];
   constructor(
     private http: HttpClient

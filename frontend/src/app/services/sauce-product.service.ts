@@ -12,7 +12,7 @@ interface Sauce {
   providedIn: 'root'
 })
 export class SauceProductService {
-  protected url: string = 'http://192.168.1.94:5009/sauce';
+  protected url: string = 'http://192.168.1.94:5009/api/sauce';
   public sauces: Sauce[] = [];
   constructor(
     private http: HttpClient

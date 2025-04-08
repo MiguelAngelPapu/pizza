@@ -12,6 +12,10 @@
     src: url(/assets/font/Signika/static/Signika-Regular.ttf);
 }
 @font-face {
+    font-family: "Signika-Bold";
+    src: url(/assets/font/Signika/static/Signika-Bold.ttf);
+}
+@font-face {
     font-family: "Signika-SemiBold";
     src: url(/assets/font/Signika/static/Signika-SemiBold.ttf);
 }

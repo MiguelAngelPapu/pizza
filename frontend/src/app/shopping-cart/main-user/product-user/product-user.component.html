@@ -1,0 +1,22 @@
+@for (shoppingCart of products; track shoppingCart.id) {
+    <section>
+        <img [src]="shoppingCart.imageUrl">
+        <article class="product__card">
+            <h4>{{ shoppingCart.name }}</h4>
+            @if (shoppingCart.amount == 1) {
+                <samp>{{ shoppingCartService.shoppingCartForPrice(shoppingCart.total) }}</samp>
+            }
+            @else {
+                <small>Precio por unidad: {{ shoppingCartService.shoppingCartForPrice(shoppingCart.price) }}</small> 
+                <samp>{{ shoppingCartService.shoppingCartForPrice(shoppingCart.total) }}</samp>
+            }
+            <p>Custom</p>
+            <form #myform action="?" method="POST">
+                <input type="submit" value="-">
+                <input type="number" name="amount" pattern="[0-9]+" [value]="shoppingCart.amount">
+                <input type="submit" value="+">
+                <input class="form__delete" type="submit" value="x">
+            </form>
+        </article>
+    </section>    
+}

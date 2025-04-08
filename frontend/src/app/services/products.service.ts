@@ -1,4 +1,6 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
 
 interface Product {
     id?: string;
@@ -11,7 +13,7 @@ interface Product {
     providedIn: 'root'
 })
 export class ProductsService {
-    
+    protected url: string = 'http://192.168.1.94:5009/api/product';
     private _products: any;
     private _createYourOwnPizza: object = {
         id: 0,
@@ -20,9 +22,7 @@ export class ProductsService {
         price: null,
         imageUrl: '/assets/img/order-product.png'
     };
-    constructor() {
-        
-    }
+    constructor(private http: HttpClient) { }    
     public productForPrice(product: Product): string{
         return new Intl.NumberFormat('es-CO', {
           style: 'currency',

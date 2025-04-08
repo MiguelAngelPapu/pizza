@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class CatalogService {
-  protected url: string = 'http://192.168.1.94:5009/catalogs';
+  protected url: string = 'http://192.168.1.94:5009/api/catalogs';
   public productsFilter: Array<any> = [];
   constructor(
     private http: HttpClient,

@@ -14,7 +14,7 @@ interface Topping {
   providedIn: 'root'
 })
 export class ToppingProductService {
-  protected url: string = 'http://192.168.1.94:5009/topping';
+  protected url: string = 'http://192.168.1.94:5009/api/topping';
 
   public toppingStyles: Topping [] = [];
   constructor(

@@ -1,0 +1,84 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+section{
+    background-color: var(--color-1);
+    border-radius: 10px;
+    padding: 10px;
+    display: flex;
+    justify-content: start;
+    gap: 19px;
+    position: relative;
+}
+section img{
+    width: 100px;
+    height: 100%;
+    object-fit: contain;
+}
+.product__card{
+    display: flex;
+    flex-direction: column;
+}
+.product__card h4{
+    color: var(--color-2);
+    font-family: "Signika-SemiBold";
+    font-size: 18px;
+}
+.product__card small{
+    color: var(--color-7);
+}
+.product__card samp{
+    color: var(--color-3);
+    font-family: "Signika-SemiBold";
+    font-size: 16px;
+}
+.product__card p{
+    color: var(--color-7);
+    font-family: "Signika-Light";
+    font-size: 16px;
+}
+.product__card form{
+    margin-top: 8px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+.product__card form input[type="number"]{
+    text-align: center;
+    width: 40px;
+    height: 25px;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    background-color: var(--color-5);
+    color: var(--color-1);
+    font-family: "Signika-Regular";
+    font-size: 14px;
+}
+/* Eliminar las flechas (spinners) para aumentar o disminuir el valor */
+/* Chrome, Safari, Edge, Opera */
+.product__card form input[type="number"]::-webkit-inner-spin-button,
+.product__card form input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+/* Firefox */
+.product__card form input[type="number"] {
+  -moz-appearance: textfield;
+}
+.product__card form input[type="submit"]{
+    border: none;
+    outline: none;
+    color: var(--color-5);
+    background-color: transparent;
+    font-family: "Signika-SemiBold";
+    font-size: 20px;
+    text-transform: uppercase;
+}
+.form__delete{
+    position: absolute;
+    right: 8px;
+    top: 5px;
+}
