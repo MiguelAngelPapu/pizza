@@ -24,12 +24,10 @@ class ToppingsController extends Controller
         //
     }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Toppings $toppings)
+    public function show(string $id)
     {
-        //
+        $topping = Toppings::find($id);
+        return response()->json($topping);
     }
 
     /**

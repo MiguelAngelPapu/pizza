@@ -2,19 +2,25 @@ main{
     padding: 10px 5px 30px 5px;
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 8px;
 }
 .section__subtotal{
     display: flex;
     justify-content: space-between;
     flex-direction: column;
-    gap: 5px;
     margin-top: 10px;
 }
 .section__subtotal h1{
     font-family: "Signika-Bold";
     color: var(--color-2);
     font-size: 24px;
+}
+.section__subtotal p{
+    padding-top: 10px;
+    color: var(--color-7);
+    font-family: "Signika-Light";
+    font-size: 14px;
+    text-align: left;
 }
 .section__subtotal span{
     font-family: "Signika-regular";

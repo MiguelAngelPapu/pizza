@@ -30,6 +30,22 @@ export class ShoppingCartService {
       return [];
     }
   }
+  localStorageRemoved(id: string): void {
+    try {
+      let cart = this.localStorage;
+      this.localStorage = cart.filter(product => product.id !== id);
+    } catch (error) {
+      console.error(`Error leyendo de localStorage con clave ${this.SHOP_KEY}`, error);
+    }
+  }
+  localStorageUpdateAmount(id: string, amount:number): void {
+    try {
+      let cart = this.localStorage;
+      this.localStorage = cart.map(product => product.id == id ? { ...product, amount } : product);
+    } catch (error) {
+      console.error(`Error leyendo de localStorage con clave ${this.SHOP_KEY}`, error);
+    }
+  }
   public updateShoppingCartSummary() {
     const shoppingCartItems = this.localStorage;
     let count = 0;

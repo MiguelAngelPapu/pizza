@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Products;
+use App\Models\Toppings;
 use Illuminate\Http\Request;
 
 
@@ -57,9 +58,12 @@ class ProductsController extends Controller
     public function findProductInLocalStorage(Request $request){
         $data = json_decode($request->input('localStorage'));
         $processedData = collect($data)->map(function($value, $key) {
-            if($value->id == "CUSTOM"){
+            if(preg_match('/CUSTOM/i', $value->id)){
                 $value->name = "Pizza personalizada";
+                $value->categories = [ [ "id"=>$value->id, "name"=> $value->name] ];
                 $value->total = $value->price * $value->amount;
+                $topping = Toppings::select('image_url')->find($value->topping);
+                $value->imageUrl = $topping ? $topping->image_url : null;
                 return $value;
             }
             $product = Products::with('categories')->find($value->id);

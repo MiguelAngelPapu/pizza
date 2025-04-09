@@ -24,23 +24,32 @@ export class CatalogService {
 
   searchProductsByCategory(searchTerm: string): void {
     this.findProductsByCategory("all").subscribe((res: any) => {
-       // Convertir valores a minúsculas para búsqueda insensible a mayúsculas
       searchTerm = searchTerm.trim().toLowerCase();
-      this.productsFilter = [this.productsService.createYourOwnPizza, ...res].filter(product => {
-        //Normaliza el término de búsqueda para hacerlo consistente
-        //trim() elimina espacios en blanco al inicio y final del texto
-        //toLowerCase() convierte todas las letras a minúsculas
-        //Importante: esto permite que la búsqueda funcione independientemente de si el usuario escribe en MAYÚSCULAS o minúsculas
+      const allProducts = [this.productsService.createYourOwnPizza, ...res];
+      
+      // Búsqueda en nombre, descripción y precio
+      this.productsFilter = allProducts.filter(product => {
         const name = product.name.toLowerCase();
         const description = product.description.toLowerCase();
         const price = product.price !== null ? product.price.toString() : '';
-
-        // Buscar el término completo en cada campo
-        return name.includes(searchTerm) ||
-          description.includes(searchTerm) ||
-          price.includes(searchTerm);
+        
+        return name.includes(searchTerm) || 
+               description.includes(searchTerm) || 
+               price.includes(searchTerm);
       });
-      if (!this.productsFilter.length) this.productsFilter = [this.productsService.createYourOwnPizza]; // Si no hay coincidencias, muestra el primer producto que es create your own pizza
+      
+      // Intentar búsqueda basada en precio si el término es numérico y no hay resultados
+      if (this.productsFilter.length === 0 && !isNaN(parseFloat(searchTerm))) {
+        const searchPrice = parseFloat(searchTerm);
+        this.productsFilter = allProducts.filter(product => 
+          product.price !== null && product.price <= searchPrice
+        );
+      }
+      
+      // Si no hay resultados, mostrar "Crea tu propia pizza"
+      if (this.productsFilter.length === 0) {
+        this.productsFilter = [this.productsService.createYourOwnPizza];
+      }
     });   
   }
 }

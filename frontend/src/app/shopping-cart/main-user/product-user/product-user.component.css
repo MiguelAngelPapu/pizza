@@ -8,6 +8,7 @@ section{
     border-radius: 10px;
     padding: 10px;
     display: flex;
+    height: 135px;
     justify-content: start;
     gap: 19px;
     position: relative;
@@ -40,7 +41,8 @@ section img{
     font-size: 16px;
 }
 .product__card form{
-    margin-top: 8px;
+    padding-top: 10px;
+    align-items: center;
     display: flex;
     align-items: center;
     gap: 20px;

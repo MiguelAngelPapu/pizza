@@ -20,7 +20,7 @@ export class AddCartProductComponent {
     e.preventDefault();
     const shoppingCart = this.catalogService.shoppingCartService.localStorage;
     shoppingCart.push({
-      id: "CUSTOM",
+      id: `CUSTOM_${shoppingCart.length}`,
       price: this.customProductService.total,
       amount: 1,
       custom: true,
