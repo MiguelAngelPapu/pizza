@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class ToppingsController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Obtener todosd los estilo de cobertura
      */
     public function index()
     {
@@ -17,13 +17,15 @@ class ToppingsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * store
      */
     public function store(Request $request)
     {
         //
     }
-
+    /**
+     * show
+     */
     public function show(string $id)
     {
         $topping = Toppings::find($id);
@@ -31,7 +33,7 @@ class ToppingsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * update
      */
     public function update(Request $request, Toppings $toppings)
     {
@@ -39,7 +41,7 @@ class ToppingsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * destroy
      */
     public function destroy(Toppings $toppings)
     {

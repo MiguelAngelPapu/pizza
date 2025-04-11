@@ -2,23 +2,29 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StorePizzaOrderRequest;
+
 use App\Models\Products;
 use App\Models\Toppings;
+use App\Models\Sauces;
+use App\Models\Choose;
+
 use Illuminate\Http\Request;
 
 
 class ProductsController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Obtener todos los productos
      */
     public function index()
     {
-       
+        $products = Products::All();
+        return response()->json($products);
     }
 
     /**
-     * Store a newly created resource in storage.
+     * store
      */
     public function store(Request $request)
     {
@@ -26,7 +32,7 @@ class ProductsController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Obtener un producto y sus categorias relacionadas
      */
     public function show(string $id)
     {
@@ -41,7 +47,7 @@ class ProductsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * update
      */
     public function update(Request $request, string $id)
     {
@@ -49,30 +55,54 @@ class ProductsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * destroy
      */
     public function destroy(string $id)
     {
         //
     }
-    public function findProductInLocalStorage(Request $request){
-        $data = json_decode($request->input('localStorage'));
-        $processedData = collect($data)->map(function($value, $key) {
-            if(preg_match('/CUSTOM/i', $value->id)){
-                $value->name = "Pizza personalizada";
-                $value->categories = [ [ "id"=>$value->id, "name"=> $value->name] ];
-                $value->total = $value->price * $value->amount;
-                $topping = Toppings::select('image_url')->find($value->topping);
-                $value->imageUrl = $topping ? $topping->image_url : null;
-                return $value;
+    /**
+     * Informacion de los productos en el localStorage
+    */
+    public function findProductInLocalStorage(StorePizzaOrderRequest $request)
+    {
+        // Los datos ya están validados por StorePizzaOrderRequest
+        $data = $request->validated()['localStorage'];
+
+        $processedData = collect($data)->map(function($value) {
+            if(preg_match('/CUSTOM/i', $value['id'])){
+     
+                $customProduct = (object) $value;
+                $customProduct->name = "Pizza personalizada";
+                $customProduct->categories = [ [ "id" => $customProduct->id, "name" => $customProduct->name] ];
+                $customProduct->total = $customProduct->price * $customProduct->amount;
+                $topping = Toppings::select('image_url')->find($customProduct->topping);
+                $customProduct->imageUrl = $topping ? $topping->image_url : null;
+
+                $customProduct->{'left-half'}['sauce'] = Sauces::find($customProduct->{'left-half'}['sauce']);
+                $customProduct->{'left-half'}['choose'] = Choose::whereIn('id', $customProduct->{'left-half'}['choose'])
+                    ->select('id', 'name', 'price')
+                    ->get();
+
+                $customProduct->{'right-half'}['sauce'] = Sauces::find($customProduct->{'right-half'}['sauce']);
+                $customProduct->{'right-half'}['choose'] = Choose::whereIn('id', $customProduct->{'right-half'}['choose'])
+                    ->select('id', 'name', 'price')
+                    ->get();
+
+                return $customProduct;
             }
-            $product = Products::with('categories')->find($value->id);
+            $product = Products::with('categories')->find($value['id']);           
             $product->categories->each->makeHidden('pivot');
-            $product->amount = $value->amount;
-            $product->total = $value->price * $value->amount;
-            if (!$product) return response()->json(['error' => 'El producto no existe'], 404);
+            $product->amount = $value['amount'];
+            $product->total = $value['price'] * $value['amount'];
+            
             return $product;
-        });
+        })->filter();
+        
         return response()->json($processedData);
     }
+
+    
 }
+
+

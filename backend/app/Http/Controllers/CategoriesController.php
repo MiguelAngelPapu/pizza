@@ -8,7 +8,7 @@ use App\Models\Categories;
 class CategoriesController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Obtener todas las categorías
      */
     public function index()
     {
@@ -17,15 +17,18 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store
      */
     public function store(Request $request)
     {
         //
     }
 
-    /**
-     * Display the specified resource.
+     /**
+     * Obtener la información de una categoría
+     *
+     * @param  string  $id Id de la categoria
+     * @example 2
      */
     public function show(string $id)
     {
@@ -35,7 +38,7 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update
      */
     public function update(Request $request, string $id)
     {
@@ -43,7 +46,7 @@ class CategoriesController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Destroy 
      */
     public function destroy(string $id)
     {

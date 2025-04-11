@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class SaucesController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Obetener todas las salsas
      */
     public function index()
     {
@@ -17,7 +17,7 @@ class SaucesController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * store
      */
     public function store(Request $request)
     {
@@ -25,15 +25,17 @@ class SaucesController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Obetener la información de una salsa
      */
-    public function show(Sauces $sauces)
+    public function show(string $id)
     {
-        //
+        $sauce = Sauces::find($id);
+        if (!$sauce) return response()->json(['error' => 'El producto no existe'], 404);
+        return response()->json($sauce);
     }
 
     /**
-     * Update the specified resource in storage.
+     * update
      */
     public function update(Request $request, Sauces $sauces)
     {
@@ -41,7 +43,7 @@ class SaucesController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * destroy
      */
     public function destroy(Sauces $sauces)
     {

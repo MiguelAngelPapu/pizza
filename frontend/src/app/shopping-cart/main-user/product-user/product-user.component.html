@@ -1,4 +1,4 @@
-@for (shoppingCart of products; track shoppingCart.id) {
+@for (shoppingCart of shoppingCartService.productsFilter; track shoppingCart.id) {
     <section>
         <img [src]="shoppingCart.imageUrl">
         <article class="product__card">

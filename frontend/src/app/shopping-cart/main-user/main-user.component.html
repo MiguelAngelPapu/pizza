@@ -1,10 +1,19 @@
 <main>
-    <section class="section__subtotal">
-        <h1>Total a pagar</h1>
-        <span>{{ shoppingCartService.shoppingCartData.total }}</span>
-        <p>
-            Para eliminar productos, haga clic en el icono "x" correspondiente. Puede ver los detalles de cada pizza haciendo clic en su imagen.
-        </p>
-    </section>
-    <router-outlet name="product-user" />
+    @if (shoppingCartService.showShoppingCart) {
+        <section class="section__subtotal">
+            <h1>Total a pagar</h1>
+            <span>{{ shoppingCartService.shoppingCartData.total }}</span>
+            <p>
+                Para eliminar productos, haga clic en el icono "x" correspondiente. Puede ver los detalles de cada pizza haciendo clic en su imagen.
+            </p>
+        </section>
+        <router-outlet name="product-user" />
+    }@else {
+        <section class="section__subtotal">
+            <p>
+                Su carrito de compras está vacío. Explore nuestro catálogo y seleccione "Agregar" para incluir productos, o utilice la opción "Crear ahora" para diseñar su pizza personalizada. Una vez configurada su pizza a su gusto, haga clic en "Agregar al carrito" para finalizar el proceso.
+            </p>
+        </section>
+    }
+    
 </main>

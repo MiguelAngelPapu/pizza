@@ -1,7 +1,6 @@
 import { Component, ElementRef, ViewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-
-import { CatalogService } from '@services/catalog.service';
+import { ShoppingCartService } from '@services/shopping-cart.service';
 
 @Component({
   selector: 'app-search-shopping-cart',
@@ -11,15 +10,21 @@ import { CatalogService } from '@services/catalog.service';
   styleUrl: './search-shopping-cart.component.css'
 })
 export class SearchShoppingCartComponent {
-  @ViewChild('miInput') inputRef!: ElementRef;
-  public searchName: string = ''; 
 
-  constructor(public catalogService : CatalogService) { }
+  @ViewChild('miInput') inputRef!: ElementRef;
+  public searchName: string = '';
+  public productsFilter: any[] = [];
+
+
+  constructor(
+    public shoppingCartService: ShoppingCartService
+  ) { }
+
 
   focusInput() {
     this.inputRef.nativeElement.focus();
   }
-  searchProductsPress(e: Event):void {
-    this.catalogService.searchProductsByCategory(this.searchName);
+  searchProducts(e: Event): void {
+    this.shoppingCartService.searchProductsPress(this.searchName);
   }
 }

@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class CrustsController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Obtener todas las cortezas de la pizza
      */
     public function index()
     {
@@ -17,7 +17,7 @@ class CrustsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * store
      */
     public function store(Request $request)
     {
@@ -25,7 +25,7 @@ class CrustsController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * show
      */
     public function show(Crusts $crusts)
     {
@@ -33,7 +33,7 @@ class CrustsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * update
      */
     public function update(Request $request, Crusts $crusts)
     {
@@ -41,7 +41,7 @@ class CrustsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * destroy
      */
     public function destroy(Crusts $crusts)
     {

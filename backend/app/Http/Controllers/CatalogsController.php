@@ -10,7 +10,7 @@ use App\Models\Menus;
 class CatalogsController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Index
      */
     public function index(Request $request)
     {
@@ -18,7 +18,7 @@ class CatalogsController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store
      */
     public function store(Request $request)
     {
@@ -26,7 +26,7 @@ class CatalogsController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Show
      */
     public function show(string $id)
     {
@@ -34,7 +34,7 @@ class CatalogsController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update
      */
     public function update(Request $request, string $id)
     {
@@ -42,12 +42,17 @@ class CatalogsController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * destroy
      */
     public function destroy(string $id)
     {
         //
     }
+
+    /**
+     * Obtener todos los productos de una categoría.
+     * @param string $categoryId
+     */
     public function getProductsByCategory(string $categoryId)
     {   
         if($categoryId == 'all'){

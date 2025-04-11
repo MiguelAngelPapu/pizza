@@ -11,16 +11,13 @@ import { ShoppingCartService } from '@services/shopping-cart.service';
   styleUrl: './product-user.component.css'
 })
 export class ProductUserComponent implements OnInit {
-  public products: Array<any> = [];
   constructor(
     public shoppingCartService: ShoppingCartService
   ) { 
   }
   ngOnInit(): void {
     this.shoppingCartService.findProductInLocalStorage().subscribe(res=>{     
-      this.products = res;
-      console.log(res);
-      
+      this.shoppingCartService.productsFilter = res.body;
     })
   }
   updateCart(e: Event, id: string): void {
@@ -44,7 +41,7 @@ export class ProductUserComponent implements OnInit {
   }
   
   private updateProductAmount(id: string, change: number): void {
-    this.products = this.products.map(product => {
+    this.shoppingCartService.productsFilter = this.shoppingCartService.productsFilter.map(product => {
       if (product.id === id) {
         const newAmount = product.amount + change;
         if (newAmount < 1) return product; // No permitir cantidades menores a 1
@@ -64,7 +61,7 @@ export class ProductUserComponent implements OnInit {
   private setProductAmount(id: string, newAmount: number): void {
     if (newAmount < 1) newAmount = 1;
     
-    this.products = this.products.map(product => {
+    this.shoppingCartService.productsFilter = this.shoppingCartService.productsFilter.map(product => {
       if (product.id === id) {
         this.shoppingCartService.localStorageUpdateAmount(id, newAmount);
         this.shoppingCartService.updateShoppingCartSummary();
@@ -79,8 +76,14 @@ export class ProductUserComponent implements OnInit {
   }
   
   private removeProduct(id: string): void {
-    this.products = this.products.filter(product => product.id !== id);
+    this.shoppingCartService.productsFilter = this.shoppingCartService.productsFilter.filter(product => product.id !== id);
     this.shoppingCartService.localStorageRemoved(id);
     this.shoppingCartService.updateShoppingCartSummary();
+    let cart = this.shoppingCartService.localStorage;
+    if (!cart.length) {
+      this.shoppingCartService.showShoppingCart = false;
+      this.shoppingCartService.updateShoppingCartSummary();
+    }
+    
   }
 }

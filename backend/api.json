@@ -1,0 +1,1115 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+        "title": "Laravel",
+        "version": "0.0.1"
+    },
+    "servers": [
+        {
+            "url": "http:\/\/localhost\/api"
+        }
+    ],
+    "paths": {
+        "\/catalogs": {
+            "get": {
+                "operationId": "CATALOGS.INDEX",
+                "summary": "Display a listing of the resource",
+                "tags": [
+                    "Catalogs"
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "post": {
+                "operationId": "CATALOGS.STORE",
+                "summary": "Store a newly created resource in storage",
+                "tags": [
+                    "Catalogs"
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "\/catalogs\/{id}": {
+            "get": {
+                "operationId": "CATALOGS.SHOW",
+                "summary": "Display the specified resource",
+                "tags": [
+                    "Catalogs"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "put": {
+                "operationId": "CATALOGS.UPDATE",
+                "summary": "Update the specified resource in storage",
+                "tags": [
+                    "Catalogs"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "CATALOGS.DELETE",
+                "summary": "Remove the specified resource from storage",
+                "tags": [
+                    "Catalogs"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "\/catalogs\/category\/{categoryId}": {
+            "get": {
+                "operationId": "CATALOGS.PRODUCTS_BY_CATEGORY",
+                "tags": [
+                    "Catalogs"
+                ],
+                "parameters": [
+                    {
+                        "name": "categoryId",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "\/category": {
+            "get": {
+                "operationId": "CATEGORIES.INDEX",
+                "summary": "Display a listing of the resource",
+                "tags": [
+                    "Categories"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "operationId": "CATEGORIES.STORE",
+                "summary": "Store a newly created resource in storage",
+                "tags": [
+                    "Categories"
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "\/category\/{id}": {
+            "get": {
+                "operationId": "CATEGORIES.SHOW",
+                "summary": "Display the specified resource",
+                "tags": [
+                    "Categories"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "operationId": "CATEGORIES.UPDATE",
+                "summary": "Update the specified resource in storage",
+                "tags": [
+                    "Categories"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "CATEGORIES.DELETE",
+                "summary": "Remove the specified resource from storage",
+                "tags": [
+                    "Categories"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "\/choose": {
+            "get": {
+                "operationId": "CHOOSES.INDEX",
+                "summary": "Display a listing of the resource",
+                "tags": [
+                    "Choose"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "operationId": "CHOOSES.STORE",
+                "summary": "Store a newly created resource in storage",
+                "tags": [
+                    "Choose"
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "\/choose\/{id}": {
+            "get": {
+                "operationId": "CHOOSES.SHOW",
+                "summary": "Display the specified resource",
+                "tags": [
+                    "Choose"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "put": {
+                "operationId": "CHOOSES.UPDATE",
+                "summary": "Update the specified resource in storage",
+                "tags": [
+                    "Choose"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "CHOOSES.DELETE",
+                "summary": "Remove the specified resource from storage",
+                "tags": [
+                    "Choose"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "\/crust": {
+            "get": {
+                "operationId": "CRUST.INDEX",
+                "summary": "Display a listing of the resource",
+                "tags": [
+                    "Crusts"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "operationId": "CRUST.STORE",
+                "summary": "Store a newly created resource in storage",
+                "tags": [
+                    "Crusts"
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "\/crust\/{id}": {
+            "get": {
+                "operationId": "CRUST.SHOW",
+                "summary": "Display the specified resource",
+                "tags": [
+                    "Crusts"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "put": {
+                "operationId": "CRUST.UPDATE",
+                "summary": "Update the specified resource in storage",
+                "tags": [
+                    "Crusts"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "CRUST.DELETE",
+                "summary": "Remove the specified resource from storage",
+                "tags": [
+                    "Crusts"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "\/product": {
+            "get": {
+                "operationId": "PRODUCTS.INDEX",
+                "summary": "Obtener todos los productos",
+                "tags": [
+                    "Products"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "operationId": "PRODUCTS.STORE",
+                "summary": "Store a newly created resource in storage",
+                "tags": [
+                    "Products"
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "\/product\/{id}": {
+            "get": {
+                "operationId": "PRODUCTS.SHOW",
+                "summary": "Display the specified resource",
+                "tags": [
+                    "Products"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "El producto no existe"
+                                        }
+                                    },
+                                    "required": [
+                                        "error"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "operationId": "PRODUCTS.UPDATE",
+                "summary": "Update the specified resource in storage",
+                "tags": [
+                    "Products"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "PRODUCTS.DELETE",
+                "summary": "Remove the specified resource from storage",
+                "tags": [
+                    "Products"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "\/product\/shoppingCart": {
+            "post": {
+                "operationId": "PRODUCTS.",
+                "summary": "Informacion de los productos en el localStorage",
+                "tags": [
+                    "Products"
+                ],
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application\/json": {
+                            "schema": {
+                                "$ref": "#\/components\/schemas\/StorePizzaOrderRequest"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "422": {
+                        "$ref": "#\/components\/responses\/ValidationException"
+                    },
+                    "403": {
+                        "$ref": "#\/components\/responses\/AuthorizationException"
+                    }
+                }
+            }
+        },
+        "\/sauce": {
+            "get": {
+                "operationId": "SAUCES.INDEX",
+                "summary": "Display a listing of the resource",
+                "tags": [
+                    "Sauces"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "operationId": "SAUCES.STORE",
+                "summary": "Store a newly created resource in storage",
+                "tags": [
+                    "Sauces"
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "\/sauce\/{id}": {
+            "get": {
+                "operationId": "SAUCES.SHOW",
+                "summary": "Display the specified resource",
+                "tags": [
+                    "Sauces"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    },
+                    "404": {
+                        "description": "",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "object",
+                                    "properties": {
+                                        "error": {
+                                            "type": "string",
+                                            "example": "El producto no existe"
+                                        }
+                                    },
+                                    "required": [
+                                        "error"
+                                    ]
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "operationId": "SAUCES.UPDATE",
+                "summary": "Update the specified resource in storage",
+                "tags": [
+                    "Sauces"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "SAUCES.DELETE",
+                "summary": "Remove the specified resource from storage",
+                "tags": [
+                    "Sauces"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "\/size": {
+            "get": {
+                "operationId": "SIZES.INDEX",
+                "summary": "Display a listing of the resource",
+                "tags": [
+                    "Sizes"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "operationId": "SIZES.STORE",
+                "summary": "Store a newly created resource in storage",
+                "tags": [
+                    "Sizes"
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "\/size\/{id}": {
+            "get": {
+                "operationId": "SIZES.SHOW",
+                "summary": "Display the specified resource",
+                "tags": [
+                    "Sizes"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "put": {
+                "operationId": "SIZES.UPDATE",
+                "summary": "Update the specified resource in storage",
+                "tags": [
+                    "Sizes"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "SIZES.DELETE",
+                "summary": "Remove the specified resource from storage",
+                "tags": [
+                    "Sizes"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "\/topping": {
+            "get": {
+                "operationId": "TOPPINGS.INDEX",
+                "summary": "Display a listing of the resource",
+                "tags": [
+                    "Toppings"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "post": {
+                "operationId": "TOPPINGS.STORE",
+                "summary": "Store a newly created resource in storage",
+                "tags": [
+                    "Toppings"
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        },
+        "\/topping\/{id}": {
+            "get": {
+                "operationId": "TOPPINGS.SHOW",
+                "tags": [
+                    "Toppings"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "",
+                        "content": {
+                            "application\/json": {
+                                "schema": {
+                                    "type": "string"
+                                }
+                            }
+                        }
+                    }
+                }
+            },
+            "put": {
+                "operationId": "TOPPINGS.UPDATE",
+                "summary": "Update the specified resource in storage",
+                "tags": [
+                    "Toppings"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            },
+            "delete": {
+                "operationId": "TOPPINGS.DELETE",
+                "summary": "Remove the specified resource from storage",
+                "tags": [
+                    "Toppings"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "path",
+                        "required": true,
+                        "schema": {
+                            "type": "string"
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": ""
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "StorePizzaOrderRequest": {
+                "type": "object",
+                "properties": {
+                    "localStorage": {
+                        "type": "array",
+                        "items": {
+                            "type": "object",
+                            "properties": {
+                                "id": {
+                                    "type": "string",
+                                    "description": "Identificador del producto o del pizza personalizada.",
+                                    "example": "CUSTOM_3",
+                                    "default": "AS001"
+                                },
+                                "price": {
+                                    "type": "number",
+                                    "description": "Precio del producto o pizza personalizada.",
+                                    "example": 75600,
+                                    "minimum": 0
+                                },
+                                "amount": {
+                                    "type": "integer",
+                                    "description": "Cantidad seleccionada por el usuario del producto",
+                                    "example": 1,
+                                    "minimum": 1
+                                },
+                                "custom": {
+                                    "type": "boolean",
+                                    "description": "Tipo de producto, puede ser un producto normal o una pizza personalizada.",
+                                    "example": true
+                                },
+                                "size": {
+                                    "type": "integer",
+                                    "description": "Tama\u00f1o de la pizza personalizada.",
+                                    "example": 3
+                                },
+                                "crust": {
+                                    "type": "integer",
+                                    "description": "Tipo de corteza de la pizza personalizada.",
+                                    "example": 5
+                                },
+                                "topping": {
+                                    "type": "integer",
+                                    "description": "Estilo de la corteza de la pizza personalizada.",
+                                    "example": 5
+                                },
+                                "left-half": {
+                                    "type": "object",
+                                    "description": "Validaci\u00f3n para la mitad izquierda",
+                                    "properties": {
+                                        "sauce": {
+                                            "type": "integer",
+                                            "description": "Salsa de la pizza personalizada para la mitad izquierda.",
+                                            "example": 8
+                                        },
+                                        "choose": {
+                                            "type": "array",
+                                            "description": "Ingredientes de la pizza personalizada para la mitad izquierda.",
+                                            "example": [
+                                                2,
+                                                13,
+                                                11,
+                                                9,
+                                                8
+                                            ],
+                                            "items": {
+                                                "type": "integer"
+                                            }
+                                        }
+                                    },
+                                    "required": [
+                                        "sauce"
+                                    ]
+                                },
+                                "right-half": {
+                                    "type": "object",
+                                    "description": "Validaci\u00f3n para la mitad derecha",
+                                    "properties": {
+                                        "sauce": {
+                                            "type": "integer",
+                                            "description": "Salsa de la pizza personalizada para la mitad derecha.",
+                                            "example": 4
+                                        },
+                                        "choose": {
+                                            "type": "array",
+                                            "description": "Ingredientes de la pizza personalizada para la mitad derecha.",
+                                            "example": [
+                                                13,
+                                                6,
+                                                7,
+                                                12
+                                            ],
+                                            "items": {
+                                                "type": "integer"
+                                            }
+                                        }
+                                    }
+                                }
+                            },
+                            "required": [
+                                "id",
+                                "price",
+                                "amount",
+                                "custom"
+                            ]
+                        }
+                    }
+                },
+                "required": [
+                    "localStorage"
+                ],
+                "title": "StorePizzaOrderRequest"
+            }
+        },
+        "responses": {
+            "ValidationException": {
+                "description": "Validation error",
+                "content": {
+                    "application\/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "description": "Errors overview."
+                                },
+                                "errors": {
+                                    "type": "object",
+                                    "description": "A detailed description of each field that failed validation.",
+                                    "additionalProperties": {
+                                        "type": "array",
+                                        "items": {
+                                            "type": "string"
+                                        }
+                                    }
+                                }
+                            },
+                            "required": [
+                                "message",
+                                "errors"
+                            ]
+                        }
+                    }
+                }
+            },
+            "AuthorizationException": {
+                "description": "Authorization error",
+                "content": {
+                    "application\/json": {
+                        "schema": {
+                            "type": "object",
+                            "properties": {
+                                "message": {
+                                    "type": "string",
+                                    "description": "Error overview."
+                                }
+                            },
+                            "required": [
+                                "message"
+                            ]
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

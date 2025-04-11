@@ -10,12 +10,17 @@ import { ShoppingCartService } from '@services/shopping-cart.service';
   styleUrl: './main-user.component.css'
 })
 export class MainUserComponent implements OnInit {
+  
   constructor(
     public shoppingCartService: ShoppingCartService
   ) {
 
   }
   ngOnInit(): void {
-    this.shoppingCartService.updateShoppingCartSummary();
+    let cart = this.shoppingCartService.localStorage;
+    if (cart.length) {
+      this.shoppingCartService.showShoppingCart = true;
+      this.shoppingCartService.updateShoppingCartSummary();
+    }
   }
 }

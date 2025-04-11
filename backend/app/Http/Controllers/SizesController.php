@@ -8,7 +8,7 @@ use Illuminate\Http\Request;
 class SizesController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Obtener todos los tamaños de las pizza
      */
     public function index()
     {
@@ -17,7 +17,7 @@ class SizesController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * store
      */
     public function store(Request $request)
     {
@@ -25,7 +25,7 @@ class SizesController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * show
      */
     public function show(Sizes $sizes)
     {
@@ -33,7 +33,7 @@ class SizesController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * update
      */
     public function update(Request $request, Sizes $sizes)
     {
@@ -41,7 +41,7 @@ class SizesController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * destroy
      */
     public function destroy(Sizes $sizes)
     {
